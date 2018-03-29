@@ -14,6 +14,7 @@
         <script type="text/javascript" src="slack.js"></script>
         <script type="text/javascript" src="home.js"></script>
         <script type="text/javascript" src="video.js"></script>
+        <script type="text/javascript" src="schedule.js"></script>
         <script type="text/javascript">
             window.onload = initHome; 
         </script>
@@ -117,7 +118,7 @@
                         <!--Close button-->
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                         <!--Save button (calls updateSettings())-->
-                        <button type="button" class="btn btn-primary" onclick="updateHomepage();" data-dismiss="modal">Save</button>
+                        <button type="button" class="btn btn-primary" onclick="initHome();" data-dismiss="modal">Save</button>
                     </div>
                     <!--/Modal footer-->
                 </div>
@@ -128,8 +129,8 @@
 
         <div class="row fonts" style="height: 15vh">
             <div class="col-4 mt-3 ml-5 mr-4.5 boxes" id="slackAlert" style="height:15vh; font-size: 2vw; color: black;">SLACK</div>
-            <div class="col mt-3 ml-5 mr-4.5 boxes" id="matchAlert" style="height:15vh">MATCH</div>
-            <div class="col-4 mt-3 ml-5 mr-5 boxes" id="discordAlert" style="height:15vh">DISCORD</div>
+            <div class="col mt-3 ml-5 mr-4.5 boxes" id="matchAlert" style="height:15vh; font-size: 2vw; color: black;">MATCH</div>
+            <div class="col-4 mt-3 ml-5 mr-5 boxes" id="discordAlert" style="height:15vh; font-size: 2vw; color: black;">DISCORD</div>
         </div>
 
         <div class ="row" style="height:3.5vh">

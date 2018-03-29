@@ -1,7 +1,8 @@
 function initHome()
 {
     slackReader();
-    storeUsers();
+	storeUsers();
+	changeChannelID();
     updateHomepage();
     updateHomepagePeriodic();
 }
@@ -27,7 +28,6 @@ function updateHomepage()
     updateRank(teamNumber, eventKey, willDisplayData);
     updateAllianceColor(eventKey, teamNumber, matchNumber, willDisplayData);
 	updateTimer();
-	changeChannelID();
 }
 
 /**
@@ -35,6 +35,7 @@ function updateHomepage()
  */
 function updateHomepagePeriodic()
 {
+	clearInterval(interval);
 	let interval = setInterval(function() {
 		updateHomepage();
 	}, 1000);
