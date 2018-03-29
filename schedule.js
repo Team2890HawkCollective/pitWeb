@@ -28,9 +28,9 @@ function updateSettings()
  * @param {Whether or not to print out the data requested from TheBlueAliance to the console} wilDisplayData 
  * @param {Function by which to sort the array of matches} criteria 
  */
-function updateMatchSchedule(teamNumber, eventKey, willDisplayData, criteria)
+function updateMatchSchedule(criteria)
 {
-    data = getSortedMatchSchedule(teamNumber, eventKey, willDisplayData, criteria);
+    data = getSortedMatchSchedule(criteria);
     
     //Only resets table if not empty
 	if (document.getElementById("schedule").rows.length != 1)
@@ -125,9 +125,9 @@ function resetTable(elementID)
  * @param {Whether or not to print out the data requested from TheBlueAliance to the console} wilDisplayData 
  * @param {Function by which to sort the array of matches} criteria 
  */
-function getSortedMatchSchedule(teamNumber, eventKey, willDisplayData, criteria)
+function getSortedMatchSchedule(criteria)
 {
-	let data = getMatches(teamNumber, eventKey, willDisplayData); //Hey this the thing that actualy gets the data
+	let data = getMatches(); //Hey this the thing that actualy gets the data
 	let sortedData = mergeSort(data, criteria); //Hey this is the thing that actually sorts the data
 	return sortedData;
 }
@@ -196,7 +196,7 @@ function convertTime(time)
 	// Day of week part from timestamp
 	let day = date.getDay();
 	// Hours part from the timestamp
-	let hours = date.getHours() + 3;
+	let hours = date.getHours();
 	// Minutes part from the timestamp
 	let minutes = "0" + date.getMinutes();//Adds 0 to beginning incase minutes is only one digit
 	let pm = " am";
@@ -242,4 +242,9 @@ function convertTime(time)
 function compareUsingMatchNumber(a, b)
 {
 	return (a.match_number > b.match_number);
+}
+
+function compareUsingMatchNumberInverse(a, b)
+{
+	return (a.match_number < b.match_number);
 }
