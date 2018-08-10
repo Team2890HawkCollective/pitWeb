@@ -33,7 +33,6 @@ function updateMatchSchedule(teamNumber, eventKey, willDisplayData, criteria)
     
 	for (let a of data)
 	{
-		console.log(a);
 		let row = document.getElementById("schedule").insertRow(1); //Inserts a row just under the header
 
         //creates new cels in current row to store data

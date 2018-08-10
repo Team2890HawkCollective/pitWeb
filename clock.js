@@ -64,7 +64,9 @@ function updatePage()
 	teamNumber = doc.elements[0].value;
 	eventKey = doc.elements[1].value;
 	matchNumber = doc.elements[2].value;
-    willDisplayData = doc.elements[3].checked;
+	willDisplayData = doc.elements[3].checked;
+
+	matchNumber = (getNextMatch(1522341600000, teamNumber, eventKey, willDisplayData, matchNumber)).match_number;
 
 	//updates data on webpage
 	updateAllianceColor(eventKey, teamNumber, matchNumber, willDisplayData);
@@ -74,6 +76,7 @@ function updatePage()
 	updateWinLossTie(teamNumber, eventKey, willDisplayData)
 	updateTeamMates(teamNumber, eventKey, willDisplayData, matchNumber, isBlue(getMatch(getMatches(teamNumber, eventKey, willDisplayData), matchNumber), teamNumber));
 	updateOpponents(teamNumber, eventKey, willDisplayData, matchNumber, isBlue(getMatch(getMatches(teamNumber, eventKey, willDisplayData), matchNumber), teamNumber));
+	updateTimer();
 }
 
 //UNDER CONSTRUCTION
