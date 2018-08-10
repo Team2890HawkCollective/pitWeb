@@ -1,0 +1,82 @@
+.alertBox {
+    border: 0.1vw solid black;
+    height: 20vh;
+}
+
+.alertBox > p {
+    font-size: 7vw;
+    text-align: center;
+    color: red;
+}
+
+.centerBox {
+    position: relative;
+}
+
+.allyColor {
+    background-color: blue;
+}
+
+.allyColor > p {
+    font-size: 8vw;
+    color: white;
+    text-align: center;    
+}
+
+.matchNumber {
+    font-size: 8vw;
+    color: blue;
+    text-align: center;
+}
+
+.vertical-center {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.timer {
+    width: 10%;
+    height: 5vh;
+}
+
+.teammates {
+    font-size: 4vw;
+    color: black;
+    text-align: center;
+    margin: 0;
+}
+
+.opponents {
+    font-size: 4vw;
+    color: black;
+    text-align: center;
+    margin: 0;
+}
+
+.bottomBox {
+    position: relative;
+    border: 0.1vw solid black;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+    max-height: 47vh;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.rank {
+    font-size: 6vw;
+    color: black;
+    text-align: center;
+    margin: 0;
+}
+
+.wlt {
+    font-size: 7vw;
+    color: black;
+    text-align: center;
+    margin: 1.5vw;
+}

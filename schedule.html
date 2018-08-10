@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Bootstrap 4 Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="schedule.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="schedule.js"></script>
+        <script type="text/javascript" src="clock.js"></script>
+        <script type="text/javascript">
+            window.onload = updateSettings;
+        </script>
+    </head>
+    <body>
+        <!-- Navbar-->
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <!--Navbar Brand-->
+                <a class="navbar-brand" href="home.html">PitWeb</a>
+            <!--/Navbar Brand-->
+
+            <!--Collapse Navbar button-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--/Collapse Navbar button-->
+
+            <!--Navbar body-->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <!--Navbar items-->
+                <ul class="navbar-nav" >
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="alerts.html">Alerts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="clock.html">Match Schedule</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="notepad.html">Notepad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="photos.html">Photos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="references.html">References</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="scouting.html">Scouting App</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="video.html">Game Livestream</a>
+                    </li>
+                </ul>
+                <!--/Navbar items-->
+                <!--Settings page button-->
+                <button type="button" class="btn btn-outline-light navbar-btn" data-toggle="modal" data-target="#settingsModal">
+                    Settings
+                </button>
+            </div>
+            <!--/Navbar body-->
+        </nav>   
+        <!--/Navbar-->
+
+        <!--Settings modal-->
+        <div class="modal hide fade" id="settingsModal">
+            <div class="modal-dialog modal-lg">
+                <!--Modal content-->
+                <div class="modal-content">
+                    <!--Modal header-->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Settings</h4>
+                        <button type="button" class="close" data-dismiss="modal">X</button>
+                    </div>
+                    <!--/Modal header-->
+
+                    <!--Modal body-->
+                    <div class="modal-body">
+                        <!--Settings form-->
+                        <form id="settings">
+                            <!--Team number input-->
+                            <div class="form-group">
+                                <label for="teamNumber">Team Number:</label>
+                                <input type="text" class="form-control" id="teamNumber" value="frc2890"></input>
+                            </div>
+                            <!--Event key input-->
+                            <div class="form-group">
+                                <label for="eventKey">Event Key:</label>
+                                <input type="text" class="form-control" id="eventKey" value="2018chcmp"></input>
+                            </div>
+                            <b>Debugging tools</b>
+                            <!--Match Number input-->
+                            <div class="form-group">
+                                <label for="matchNum">Match Number:</label>
+                                <input type="text" class="form-control" id="matchNum" value="118"></input>
+                            </div>
+                            <!--Display data in console checkbox-->
+                            <div class="form-group form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox"> Print requested data in console </input>
+                                </label>
+                            </div>
+                        </form> 
+                        <!--Settings form-->
+                    </div>
+                    <!--Modal body-->
+
+                    <!--Modal footer-->
+                    <div class="modal-footer">
+                        <!--Close button-->
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <!--Save button (calls updateSettings())-->
+                        <button type="button" class="btn btn-primary" onclick="updateSettings();" data-dismiss="modal">Save</button>
+                    </div>
+                    <!--/Modal footer-->
+                </div>
+                <!--/Modal content-->
+            </div>
+        </div>
+        <!--/Settings modal-->
+
+        <!--Alert Box-->
+        <div class="row">
+            <div class="col alertBox">
+                <p>!Alert!</p>
+            </div>
+        </div>
+        <!--/Alert Box-->
+
+        <!--Bottom Box-->
+		<div class="row">
+            <!--Match Schedule-->
+			<div class="col table-wrapper-scroll-y">
+                <!--Table-->
+                <table class="table table-striped table-bordered" id="schedule">
+                    <!--Header-->
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Match #</th>
+                            <th>Blue 1</th>
+                            <th>Blue 2</th>
+                            <th>Blue 3</th>
+                            <th>Red 1</th>
+                            <th>Red 2</th>
+                            <th>Red 3</th>
+                        </tr>
+                    </thead>
+                    <!--/Header-->
+
+                    <!--Body-->
+                    <tbody>
+                    </tbody>
+                    <!--/Body-->
+                </table>
+                <!--/Table-->
+                </a>
+            </div>
+            <!--/Match Schedule-->
+        </div>
+        <!--/Bottom Box-->
+        <script type="text/javascript" src="settings.js"></script> <!--Runs the settings.js file which loads previously saved settings-->
+    </body>
+</html>
