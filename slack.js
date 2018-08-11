@@ -101,6 +101,6 @@ function sendMessage()
     //Send the message
     $.ajax({
         type: "POST",
-        url: "https://slack.com/api/chat.postMessage?token=" + slackAPI + "&channel=CC4GK41U1&text=" + message
+        url: "https://slack.com/api/chat.postMessage?token=" + slackAPI + "&channel=CC7SGKLUF&text=" + message
     })
 }

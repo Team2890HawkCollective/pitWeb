@@ -34,12 +34,24 @@ function runTimer(currentTime, targetTime)
         currentTime += 1000;
 
         timer.innerHTML = hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
+
+        if (difference.getUTCHours == 0)
+        {
+            if (difference.getUTCMinutes == 0)
+            {
+                if (difference.getUTCSeconds == 0)
+                {
+                    clearInterval(interval);
+                    updateTimer();
+                }
+            }
+        }
     }, 1000);
 }
 
 function getNextMatchTime(currentTime, teamNumber, eventKey, willDisplayData, matchNumber)
 {
-        return getNextMatch(currentTime, teamNumber, eventKey, willDisplayData, matchNumber).time*1000;
+    return getNextMatch(currentTime, teamNumber, eventKey, willDisplayData, matchNumber).time*1000;
 }
 
 function getNextMatch(currentTime, teamNumber, eventKey, willDisplayData, matchNumber)
