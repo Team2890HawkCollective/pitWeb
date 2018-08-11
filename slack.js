@@ -1,11 +1,15 @@
 let userList;
 let messageList;
 
+//Prevent the enter button from refreshing the page
 document.getElementById('messageForm').addEventListener('submit', function(e) {
     sendMessage();
     e.preventDefault();
 }, false);
 
+/**
+ * Read messages from the slack and post them in the div
+ */
 function slackReader()
 {
     let socket; 
