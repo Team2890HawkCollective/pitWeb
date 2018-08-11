@@ -6,7 +6,7 @@ function slackReader()
     let socket; 
     messageList = [];
     $.ajax({
-		url: "https://slack.com/api/rtm.connect?token=xoxb-412983530147-413065271027-KR34Wn7vxgjW1veEsxc8VFko", //Url for the rtm api. returns a websocket url
+		url: "https://slack.com/api/rtm.connect?token=" + slackAPI, //Url for the rtm api. returns a websocket url
 		success: function(data) {
             socket = new WebSocket(data.url); //opens a new websocket to access the slack messages
             
@@ -66,7 +66,7 @@ function slackReader()
 function storeUsers()
 {
 	$.ajax({
-		url: "https://slack.com/api/users.list?token=xoxp-412983530147-412471383920-414625814883-535e77ba49623442a0653a5e5e3080ae",
+		url: "https://slack.com/api/users.list?token=" + slackAPI,
 		async: false,
 		type: "GET",
 		success: function(data) {
@@ -101,6 +101,6 @@ function sendMessage()
     //Send the message
     $.ajax({
         type: "POST",
-        url: "https://slack.com/api/chat.postMessage?token=xoxp-412983530147-412471383920-414516596854-ea00a1004d7d8333a5b89621cfd01582&channel=CC4GK41U1&text=" + message
+        url: "https://slack.com/api/chat.postMessage?token=" + slackAPI + "&channel=CC4GK41U1&text=" + message
     })
 }

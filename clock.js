@@ -3,6 +3,7 @@ let teamNumber;
 let eventKey; //a unique identifier for an event from TBA. typically formatted as ####*****
 let matchNumber;
 let willDisplayData; //Whether or not to print out the data requested from TheBlueAlliance to the console
+let slackAPI; //API key for the slack bot
 
 //UNDER CONSTRUCTION
 function countdown()
@@ -63,8 +64,9 @@ function updatePage()
 	//populates data from form
 	teamNumber = doc.elements[0].value;
 	eventKey = doc.elements[1].value;
-	matchNumber = doc.elements[2].value;
-	willDisplayData = doc.elements[3].checked;
+	slackAPI = doc.elements[2].value;
+	matchNumber = doc.elements[3].value;
+	willDisplayData = doc.elements[4].checked;
 
 	matchNumber = (getNextMatch(1522341600000, teamNumber, eventKey, willDisplayData, matchNumber)).match_number;
 
@@ -218,6 +220,7 @@ function getTeamMates(teamNumber, eventKey, willDisplayData, matchNum, isBlue)
 	if (isBlue)
 	{
 		let teamMates = match.alliances.blue.team_keys; //Grabs the names of the teams on the blue alliance
+		document.getElementById("teammates").style.color = "blue";
 		return formatTeams(teamMates, teamNumber); //removes "frc" prefix
 	}
 	else

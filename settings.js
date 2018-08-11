@@ -15,7 +15,8 @@ else
 function populateStorage() {
     localStorage.setItem('teamNumber', settingsForm.elements[0].value);
     localStorage.setItem('eventKey', settingsForm.elements[1].value);
-    localStorage.setItem('matchNumber', settingsForm.elements[2].value);
+    localStorage.setItem('slackAPI', settingsForm.elements[2].value);
+    localStorage.setItem('matchNumber', settingsForm.elements[3].value);
 
     setStyles();
 }
@@ -26,11 +27,13 @@ function populateStorage() {
 function setStyles() {
     teamNumber = localStorage.getItem('teamNumber');
     eventKey = localStorage.getItem('eventKey');
+    slackAPI = localStorage.getItem('slackAPI');
     matchNumber = localStorage.getItem('matchNumber');
 
     settingsForm.elements[0].value = teamNumber;
     settingsForm.elements[1].value = eventKey;
-    settingsForm.elements[2].value = matchNumber;
+    settingsForm.elements[2].value = slackAPI;
+    settingsForm.elements[3].value = matchNumber;
 }   
 
 //If the settings change, re-populate the localstorage
