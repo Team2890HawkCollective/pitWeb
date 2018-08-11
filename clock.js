@@ -220,12 +220,13 @@ function getTeamMates(teamNumber, eventKey, willDisplayData, matchNum, isBlue)
 	if (isBlue)
 	{
 		let teamMates = match.alliances.blue.team_keys; //Grabs the names of the teams on the blue alliance
-		document.getElementById("teammates").style.color = "blue";
+		document.getElementById("teammates").style.color = "blue"; //sets the color of the text to blue
 		return formatTeams(teamMates, teamNumber); //removes "frc" prefix
 	}
 	else
 	{
 		let teamMates = match.alliances.red.team_keys; //Grabs the names of the teams on the red alliance
+		document.getElementById("teammates").style.color = "red"; //sets the color of the text to red
 		return formatTeams(teamMates, teamNumber); //removes the "frc" prefix
 	}
 }
@@ -279,11 +280,13 @@ function getOpponents(teamNumber, eventKey, willDisplayData, matchNum, isBlue)
 	if (isBlue)
 	{
 		let opponents = match.alliances.red.team_keys; //Grabs the names of the teams on the red alliance
+		document.getElementById("opponents").style.color = "red";
 		return formatTeams(opponents); //removes "frc" prefix
 	}
 	else
 	{
 		let opponents = match.alliances.blue.team_keys; //Grabs the names of the teams on the blue alliance
+		document.getElementById("opponents").style.color = "blue";
 		return formatTeams(opponents); //removes "frc" prefix
 	}
 }
