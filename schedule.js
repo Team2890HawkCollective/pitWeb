@@ -52,15 +52,46 @@ function updateMatchSchedule(teamNumber, eventKey, willDisplayData, criteria)
 
 		matchNum.innerHTML = a.match_number; //sets the match cel to the match number
 
-        //removes frc prefix and populates the cel
+        //removes frc prefix and populates the cell
 		blue1.innerHTML = a.alliances.blue.team_keys[0].substring(3); 
 		blue2.innerHTML = a.alliances.blue.team_keys[1].substring(3);
 		blue3.innerHTML = a.alliances.blue.team_keys[2].substring(3);
 
-        //removes frc prefix and populates the cel
+        //removes frc prefix and populates the cell
 		red1.innerHTML = a.alliances.red.team_keys[0].substring(3);
 		red2.innerHTML = a.alliances.red.team_keys[1].substring(3);
 		red3.innerHTML = a.alliances.red.team_keys[2].substring(3);
+
+		if (a.alliances.blue.team_keys[0] == teamNumber)
+		{
+			blue1.style.backgroundColor = "blue";
+			blue1.style.color = "white";
+		}
+		else if (a.alliances.blue.team_keys[1] == teamNumber)
+		{
+			blue2.style.backgroundColor = "blue";
+			blue2.style.color = "white";
+		}
+		else if (a.alliances.blue.team_keys[2] == teamNumber)
+		{
+			blue3.style.backgroundColor = "blue";
+			blue3.style.color = "white";
+		}
+		else if (a.alliances.red.team_keys[0] == teamNumber)
+		{
+			red1.style.backgroundColor = "red";
+			red1.style.color = "white";
+		}
+		else if (a.alliances.red.team_keys[1] == teamNumber)
+		{
+			red2.style.backgroundColor = "red";
+			red2.style.color = "white";
+		}
+		else
+		{
+			red3.style.backgroundColor = "red";
+			red3.style.color = "white";
+		}
 	}
 }
 
