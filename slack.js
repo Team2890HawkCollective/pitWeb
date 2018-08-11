@@ -1,6 +1,11 @@
 let userList;
 let messageList;
 
+document.getElementById('messageForm').addEventListener('submit', function(e) {
+    sendMessage();
+    e.preventDefault();
+}, false);
+
 function slackReader()
 {
     let socket; 

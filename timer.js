@@ -43,6 +43,7 @@ function runTimer(currentTime, targetTime)
                 {
                     clearInterval(interval);
                     updateTimer();
+                    updatePage();
                 }
             }
         }
