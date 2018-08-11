@@ -1,5 +1,5 @@
 /**
- * Puls the settings from the modal and populates the match schedule table
+ * Pulls the settings from the modal and populates the match schedule table
  */
 function updateSettings()
 {
@@ -15,7 +15,7 @@ function updateSettings()
 }
 
 /**
- * Populates the schedule table with the match time, match num, blue aliances, and red aliance
+ * Populates the schedule table with the match time, match num, blue alliances, and red alliance
  * @param {team number in format frc####} teamNumber 
  * @param {a unique identifier for an event from TBA. typicaly formatted as ####*****} eventKey 
  * @param {Whether or not to print out the data requested from TheBlueAliance to the console} wilDisplayData 
@@ -35,7 +35,7 @@ function updateMatchSchedule(teamNumber, eventKey, willDisplayData, criteria)
 	{
 		let row = document.getElementById("schedule").insertRow(1); //Inserts a row just under the header
 
-        //creates new cels in current row to store data
+        //creates new cells in current row to store data
 		let time = row.insertCell(0); 
 
 		let matchNum = row.insertCell(1); 
@@ -50,7 +50,7 @@ function updateMatchSchedule(teamNumber, eventKey, willDisplayData, criteria)
 
 		time.innerHTML = convertTime(a.time); //Converts the unicode time to human readable time, then sets the time cel
 
-		matchNum.innerHTML = a.match_number; //sets the match cel to the match number
+		matchNum.innerHTML = a.match_number; //sets the match cell to the match number
 
         //removes frc prefix and populates the cell
 		blue1.innerHTML = a.alliances.blue.team_keys[0].substring(3); 
@@ -96,7 +96,7 @@ function updateMatchSchedule(teamNumber, eventKey, willDisplayData, criteria)
 }
 
 /**
- * Deletes al rows in the table except the header
+ * Deletes all rows in the table except the header
  * @param {ID of the table element to clear} elementID 
  */
 function resetTable(elementID)
@@ -121,7 +121,7 @@ function resetTable(elementID)
 function getSortedMatchSchedule(teamNumber, eventKey, willDisplayData, criteria)
 {
 	let data = getMatches(teamNumber, eventKey, willDisplayData); //Hey this the thing that actualy gets the data
-	let sortedData = mergeSort(data, criteria); //Hey this is the thing that actualy sorts the data
+	let sortedData = mergeSort(data, criteria); //Hey this is the thing that actually sorts the data
 	return sortedData;
 }
 
@@ -144,7 +144,7 @@ function mergeSort(arr, criteria)
 	let left = arr.slice(0,mid); //left-half of array
     let right = arr.slice(mid); //opposite of left-half of array
         
-	//Sorts the halves individualy, then merges the two halves into a larger sorted array to be returned
+	//Sorts the halves individually, then merges the two halves into a larger sorted array to be returned
 	return merge(mergeSort(left, criteria), mergeSort(right, criteria), criteria);
  }
  
