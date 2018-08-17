@@ -3,10 +3,10 @@ let interval;
 function updateTimer()
 {
     clearInterval(interval);
-    runTimer(1522341600000, getNextMatchTime(1522341600000, teamNumber, eventKey, willDisplayData, matchNumber));                  
+    runTimer(Date.now(), getNextMatchTime(Date.now(), teamNumber, eventKey, willDisplayData, matchNumber));                  
 }
 
-function runTimer(currentTime, targetTime)
+function runTimer(currentTime, targetTime, teamNumber, eventKey, willDisplayData)
 {
     let timer = document.getElementById("timer");
 
@@ -30,8 +30,9 @@ function runTimer(currentTime, targetTime)
         minutes = "0" + difference.getUTCMinutes();
         hours = difference.getUTCHours();
 
-        //currentTime = Date.now();
-        currentTime += 1000;
+        hours += getFieldTiming(getPreviousMatch(currentTime, teamNumber, eventKey, willDisplayData));
+
+        currentTime = Date.now();
 
         timer.innerHTML = hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
 
@@ -83,4 +84,28 @@ function getNextMatch(currentTime, teamNumber, eventKey, willDisplayData, matchN
 
         return nextMatch;
     }
+}
+
+function getPreviousMatch(currentTime, teamNumber, eventKey, willDisplayData)
+{
+    let matches = getMatches(teamNumber, eventKey, willDisplayData);
+    let previousMatch;
+
+    for (let i = 0; i < matches.length; i++)
+    {
+        if ((matches[i].time*1000) > currentTime)
+        {
+            previousMatch = matches[i - 2];
+            break;
+        }
+    }
+
+    return previousMatch;
+}
+
+function getFieldTiming(previousMatch)
+{
+    let actualTime  = previousMatch.actual_time;
+    let scheduledTime = previousMatch.time;
+    return actualTime - scheduledTime;
 }
