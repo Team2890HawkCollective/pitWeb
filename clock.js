@@ -5,46 +5,6 @@ let matchNumber;
 let willDisplayData; //Whether or not to print out the data requested from TheBlueAlliance to the console
 let slackAPI; //API key for the slack bot
 
-//UNDER CONSTRUCTION
-function countdown()
-{
-	console.log("minutes" + minutes);
-	console.log("seconds" + seconds);
-	
-	let interval = setInterval(function() {
-		let el = document.getElementById("clock");
-		if (seconds == 0)
-		{
-			if (minutes == 0)
-			{
-				el.style.width = "0%";
-				clearInterval(interval);
-				return;
-			}
-			else
-			{
-				minutes--;
-				seconds = 59;
-			}
-		}
-		if (minutes < 5)
-		{
-			if (seconds % 2 == 0)
-			{
-				document.getElementById("timer").style.backgroundColor = "red";
-			}
-			else
-			{
-				document.getElementById("timer").style.backgroundColor = "white";
-			}
-		}
-		el.style.fontSize = "8vw";
-		el.style.textAlign = "center";
-		el.innerHTML = minutes + ":" + seconds;
-		seconds--;
-	}, 1000);
-}
-
 /**
  * Runs on startup
  */
@@ -68,7 +28,7 @@ function updatePage()
 	matchNumber = doc.elements[3].value;
 	willDisplayData = doc.elements[4].checked;
 
-	matchNumber = (getNextMatch(1522341600000, teamNumber, eventKey, willDisplayData, matchNumber)).match_number;
+	matchNumber = (getNextMatch(Date.now(), teamNumber, eventKey, willDisplayData, matchNumber)).match_number;
 
 	//updates data on webpage
 	updateAllianceColor(eventKey, teamNumber, matchNumber, willDisplayData);
