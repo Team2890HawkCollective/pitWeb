@@ -14,7 +14,7 @@
 }
 
 .allyColor {
-    background-color: blue;
+    text-align: center;
 }
 
 .allyColor > p {
@@ -25,7 +25,6 @@
 
 .matchNumber {
     font-size: 6.5vw;
-    color: blue;
     text-align: center;
 }
 
