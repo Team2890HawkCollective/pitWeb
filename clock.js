@@ -10,9 +10,9 @@ let slackAPI; //API key for the slack bot
  */
 function init()
 {
-	updatePage();
 	storeUsers();
 	slackReader();
+	updatePage();
 	updatePagePeriodic();
 }
 
