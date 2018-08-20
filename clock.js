@@ -13,6 +13,7 @@ function init()
 	updatePage();
 	storeUsers();
 	slackReader();
+	updatePagePeriodic();
 }
 
 /**
@@ -41,12 +42,14 @@ function updatePage()
 	updateTimer();
 }
 
-//UNDER CONSTRUCTION
-function updateValues()
+/**
+ * Periodically update the page and it's values
+ */
+function updatePagePeriodic()
 {
 	let interval = setInterval(function() {
-		//allianceColor(eventKey, teamNumber, matchNumber, willDisplayData);
-	}, 30000);
+		updatePage();
+	}, 60000);
 }
 
 /**
