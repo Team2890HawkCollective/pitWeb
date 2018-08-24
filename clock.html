@@ -12,6 +12,7 @@
         <script type="text/javascript" src="clock.js"></script>
         <script type="text/javascript" src="schedule.js"></script>
         <script type="text/javascript" src="timer.js"></script>
+        <script type="text/javascript" src="slack.js"></script>
         <script type="text/javascript">
             window.onload = init; 
         </script>
@@ -119,9 +120,9 @@
         <!--/Settings modal-->
 
         <div class="row fonts" style="height: 15vh">
-            <div class="col-4 mt-3 ml-5 mr-4.5 boxes" style="height:15vh">SLACK</div>
-            <div class="col mt-3 ml-5 mr-4.5 boxes" style="height:15vh">MATCH</div>
-            <div class="col-4 mt-3 ml-5 mr-5 boxes" style="height:15vh">DISCORD</div>
+            <div class="col-4 mt-3 ml-5 mr-4.5 boxes" style="height:15vh; font-size: 2vw; color: black;" id="slackAlert">SLACK</div>
+            <div class="col mt-3 ml-5 mr-4.5 boxes" style="height:15vh" id="matchAlert">MATCH</div>
+            <div class="col-4 mt-3 ml-5 mr-5 boxes" style="height:15vh" id="discordAlert">DISCORD</div>
         </div>
 
         <div class ="row" style="height:5vh">

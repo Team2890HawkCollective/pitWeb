@@ -11,6 +11,8 @@ let slackChannel; //Channel ID for the slackbot
  */
 function init()
 {
+	storeUsers();
+	slackReader();
 	updatePage();
 	updatePagePeriodic();
 }
