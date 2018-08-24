@@ -16,20 +16,39 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <a class="navbar-brand" href="#">PittWeb</a>
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="#">Scout</a></li>
-                <li class="nav-item active"><a class="nav-link" href="#">Alert</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Clock</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Video</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">References</a></li>
-            </ul>
-            <button type="button" class="btn btn-outline-light navbar-btn" data-toggle="modal" data-target="#settingsModal">
-                Settings
+        <!-- Navbar-->
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <!--Navbar Brand-->
+                <a class="navbar-brand" href="home.html">PitWeb</a>
+            <!--/Navbar Brand-->
+
+            <!--Collapse Navbar button-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
             </button>
-        </nav>
+            <!--/Collapse Navbar button-->
+
+            <!--Navbar body-->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <!--Navbar items-->
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link mx-2 active" href="alerts.html">Alerts</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="clock.html">Clock</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="notepad.html">Notepad</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="photos.html">Photos</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="references.html">References</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="scouting.html">Scouting App</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="video.html">Game Livestream</a></li>
+                </ul>
+                <!--/Navbar items-->
+
+                <!--Settings page button-->
+                <button type="button" class="btn btn-outline-light navbar-btn" data-toggle="modal" data-target="#settingsModal">Settings</button>
+                <!--/Settings page button-->
+            </div>
+            <!--/Navbar body-->
+        </nav>   
+        <!--/Navbar-->
 
          <!--Settings modal-->
          <div class="modal hide fade" id="settingsModal">
@@ -57,11 +76,12 @@
                                 <label for="eventKey">Event Key:</label>
                                 <input type="text" class="form-control" id="eventKey" value="">
                             </div>
-                            <!--Slack API key-->
+                            <!--Slack API key input-->
                             <div class="form-group">
                                 <label for="slackAPI">Slack API Key</label>
                                 <input type="text" class="form-control" id="slackAPI" value="">
                             </div>
+                            <!--Slack Channel ID input-->
                             <div class="form-group">
                                 <label for="slackChannel">Slack Channel ID</label>
                                 <input type="text" class="form-control" id="slackChannel" value="">
@@ -120,8 +140,9 @@
 
         <div class="row" style="height: 60vh">
             <div class="col-2 listborders">
-                <!-- <font size="5vw">Task List</font> -->
+                <font size="5vw">Task List</font>
                 <!-- <iframe width="100%" height="100%" src="https://docs.google.com/document/d/1vwCOhDxH1_ODmeBlTHRAkRQUq5iMOFqqRurJl40JyBo/edit?usp=sharing"></iframe> -->
+                <iframe width="100%" height="100%" src="https://onlinenotepad.org/app"></iframe>
             </div>
             <div class="col-5 listborders">
                 <font size="5vw">Discord</font>
