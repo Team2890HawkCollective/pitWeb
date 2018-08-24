@@ -11,8 +11,6 @@ let slackChannel; //Channel ID for the slackbot
  */
 function init()
 {
-	storeUsers();
-	slackReader();
 	updatePage();
 	updatePagePeriodic();
 }
@@ -35,7 +33,6 @@ function updatePage()
 
 	//updates data on webpage
 	updateAllianceColor(eventKey, teamNumber, matchNumber, willDisplayData);
-	updateMatchNumber(matchNumber, isBlue(getMatch(getMatches(teamNumber, eventKey, willDisplayData), matchNumber), teamNumber));
 	updateMatchSchedule(teamNumber, eventKey, willDisplayData, compareUsingMatchNumber);
 	updateRank(teamNumber, eventKey, willDisplayData)
 	updateWinLossTie(teamNumber, eventKey, willDisplayData)
@@ -64,7 +61,7 @@ function updatePagePeriodic()
 function updateAllianceColor(eventKey, teamNumber, matchNumber, willDisplayData)
 {
 	//Sorts down to the individual match, determines the color, and sets the color on the webpage
-	setAllianceColor(isBlue(getMatch(getMatches(teamNumber, eventKey, willDisplayData), matchNumber), teamNumber));
+	setAllianceColor(matchNumber, isBlue(getMatch(getMatches(teamNumber, eventKey, willDisplayData), matchNumber), teamNumber));
 }
 
 /**
@@ -105,38 +102,21 @@ function isBlue(data, teamNumber)
 
 /**
  * Sets the allyColor div to be blue or red depending on the value given
+ * @param {match number} matchNumber 
  * @param {Boolean. true if blue, false if red} isBlue 
  */
-function setAllianceColor(isBlue)
+function setAllianceColor(matchNumber, isBlue)
 {
 	if (isBlue)
 	{
 		document.getElementById("allyColor").style.backgroundColor = "blue";
-		document.getElementById("allyColor").innerHTML = "<p>Blue</p>";
+		document.getElementById("allyColor").innerHTML = "<p>Blue - Q" + matchNumber;
 	}
 	else
 	{
 		document.getElementById("allyColor").style.backgroundColor = "red";
-		document.getElementById("allyColor").innerHTML = "<p>Red</p>";
+		document.getElementById("allyColor").innerHTML = "<p>Red - Q" + matchNumber;
 	}
-}
-
-/**
- * Updates the match number on the webpage
- * @param {match number} matchNumber 
- * @param {Boolean. true if blue, false if red} isBlue 
- */
-function updateMatchNumber(matchNumber, isBlue)
-{
-	if (isBlue)
-	{
-		document.getElementById("matchNumber").style.color = "blue";
-	}
-	else
-	{
-		document.getElementById("matchNumber").style.color = "red";
-	}
-	document.getElementById("matchNumber").innerHTML = '<p id="matchNumber">Q' + matchNumber + '</p>'; //adds match number to the HTML
 }
 
 /**
@@ -185,13 +165,13 @@ function getTeamMates(teamNumber, eventKey, willDisplayData, matchNum, isBlue)
 	if (isBlue)
 	{
 		let teamMates = match.alliances.blue.team_keys; //Grabs the names of the teams on the blue alliance
-		document.getElementById("teammates").style.color = "blue"; //sets the color of the text to blue
+		document.getElementById("teammates").style.backgroundColor = "blue"; //sets the color of the text to blue
 		return formatTeams(teamMates, teamNumber); //removes "frc" prefix
 	}
 	else
 	{
 		let teamMates = match.alliances.red.team_keys; //Grabs the names of the teams on the red alliance
-		document.getElementById("teammates").style.color = "red"; //sets the color of the text to red
+		document.getElementById("teammates").style.backgroundColor = "red"; //sets the color of the text to red
 		return formatTeams(teamMates, teamNumber); //removes the "frc" prefix
 	}
 }
@@ -210,7 +190,7 @@ function formatTeams(array, teamNumber)
 		//filters out the given team number
 		if (array[i] != teamNumber)
 		{
-			output += array[i].substring(3) + " "; //removes the "frc" prefix
+			output += array[i].substring(3) + "<br>"; //removes the "frc" prefix
 		}
 	}
 
@@ -245,13 +225,13 @@ function getOpponents(teamNumber, eventKey, willDisplayData, matchNum, isBlue)
 	if (isBlue)
 	{
 		let opponents = match.alliances.red.team_keys; //Grabs the names of the teams on the red alliance
-		document.getElementById("opponents").style.color = "red";
+		document.getElementById("opponents").style.backgroundColor = "red";
 		return formatTeams(opponents); //removes "frc" prefix
 	}
 	else
 	{
 		let opponents = match.alliances.blue.team_keys; //Grabs the names of the teams on the blue alliance
-		document.getElementById("opponents").style.color = "blue";
+		document.getElementById("opponents").style.backgroundColor = "blue";
 		return formatTeams(opponents); //removes "frc" prefix
 	}
 }
@@ -267,7 +247,7 @@ function getOpponents(teamNumber, eventKey, willDisplayData, matchNum, isBlue)
  */
 function updateRank(teamNumber, eventKey, willDisplayData)
 {
-	document.getElementById("rank").innerHTML = '<b>Rank:</b> <br><b style="font-size: 8vw">' + getRank(teamNumber, eventKey, willDisplayData) + '</b>';
+	document.getElementById("rank").innerHTML = 'Rank: <br>' + getRank(teamNumber, eventKey, willDisplayData);
 }
 
 /**
