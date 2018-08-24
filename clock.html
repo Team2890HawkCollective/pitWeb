@@ -77,10 +77,15 @@
                                 <label for="eventKey">Event Key:</label>
                                 <input type="text" class="form-control" id="eventKey" value="">
                             </div>
-                            <!--Slack API key-->
+                            <!--Slack API key input-->
                             <div class="form-group">
                                 <label for="slackAPI">Slack API Key</label>
                                 <input type="text" class="form-control" id="slackAPI" value="">
+                            </div>
+                            <!--Slack Channel ID input-->
+                            <div class="form-group">
+                                <label for="slackChannel">Slack Channel ID</label>
+                                <input type="text" class="form-control" id="slackChannel" value="">
                             </div>
                             <b>Debugging tools</b>
                             <!--Match Number input-->
@@ -104,7 +109,7 @@
                         <!--Close button-->
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                         <!--Save button (calls updateSettings())-->
-                        <button type="button" class="btn btn-primary" onclick="updatePage();" data-dismiss="modal">Save</button>
+                        <button type="button" class="btn btn-primary" onclick="updatoAlerto();" data-dismiss="modal">Save</button>
                     </div>
                     <!--/Modal footer-->
                 </div>
