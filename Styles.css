@@ -1,0 +1,41 @@
+body, html
+{
+   height: 100%;
+   margin: 0;
+}
+.bg
+{
+    background-color:lightslategray;
+}
+.boxes
+{
+    border-style: solid;
+    border-color: black;
+    border-width: 0.25vw; 
+    background-color: rgb(62, 65, 65);
+}
+.rboxes
+{
+    border-style: solid;
+    border-color: black;
+    border-radius: 5vw; 
+    border-width:0.25vw;
+    background-color: rgb(62, 65, 65);
+}
+.fonts
+{
+    color:white;
+    font-size:3vw;
+    text-align:center;
+}
+.fontbp
+{
+    color:white;
+}
+
+.smfonts
+{
+    color:white;
+    font-size:2vw;
+    text-align:center;
+}
