@@ -4,6 +4,7 @@ let eventKey; //a unique identifier for an event from TBA. typically formatted a
 let matchNumber;
 let willDisplayData; //Whether or not to print out the data requested from TheBlueAlliance to the console
 let slackAPI; //API key for the slack bot
+let slackChannel; //Channel ID for the slackbot
 
 /**
  * Runs on startup
@@ -26,8 +27,9 @@ function updatePage()
 	teamNumber = doc.elements[0].value;
 	eventKey = doc.elements[1].value;
 	slackAPI = doc.elements[2].value;
-	matchNumber = doc.elements[3].value;
-	willDisplayData = doc.elements[4].checked;
+	slackChannel = doc.elements[3].value;
+	matchNumber = doc.elements[4].value;
+	willDisplayData = doc.elements[5].checked;
 
 	matchNumber = (getNextMatch(Date.now(), teamNumber, eventKey, willDisplayData, matchNumber)).match_number;
 
