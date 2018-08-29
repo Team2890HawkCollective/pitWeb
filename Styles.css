@@ -39,3 +39,14 @@ body, html
     font-size:1vw;
     text-align:center;
 }
+
+.msgBox
+{
+    border-style: solid;
+    border-color: black;
+    border-width: 0.25vw; 
+    background-color:silver;
+    font-size:1vw;
+    color:black;
+    text-align:center;
+}

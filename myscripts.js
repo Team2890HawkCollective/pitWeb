@@ -24,14 +24,13 @@ function openImage(evt, imageName) {
 document.getElementById("defaultOpen").click();
 
 /***********************************************
- * Game LiveStream JS
+ * Game LiveStream JS 
  */
 
  //This changes the channel ID for the twitch player
  function changeChannelID()
  {
-     let newid = document.getElementById("modaltwitchform").elements[0].value;
+     let newid = document.getElementById("videosettings").elements[0].value;
      document.getElementById("twitchplayer").src= "https://player.twitch.tv/?channel=" + newid;
  }
-
  
