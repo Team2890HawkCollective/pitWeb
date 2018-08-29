@@ -1,12 +1,9 @@
 $(document).ready(function () {
   var i = 0;
   for (i = 0; i < localStorage.length; i++) {
-      var taskID = "task-" + i;
-      $('#taskList').append("<li id='" + taskID + "'>" + localStorage.getItem(taskID) + "</li>");
+      var taskID = i;
+      localStorage.getItem(taskID);
   }
-  $('#clear').click(function () {
-      localStorage.clear();
-  });
   $('#taskEntryForm').submit(function () {
       if ($('#taskInput').val() !== "") {
           var taskID = "task-" + i;

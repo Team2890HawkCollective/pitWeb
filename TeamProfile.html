@@ -51,10 +51,56 @@
             <div class="col-12" style="color:lightslategray">sad</div>
         </div>
         
+<<<<<<< HEAD
         <div class="row" style="height: 70vh">
             <div class="col-8 mt-3 ml-5 mr-4.5 boxes" style="height:67vh">PIC</div>
             <div class="col mt-3 ml-5 mr-5 boxes" style="height:67vh">OPTIONS</div>
+=======
+        <div class="row" style="height: 70vh"> <!--This section displays the leading or default image (slide) -->
+            <div class="col-8 mt-3 ml-5 mr-4.5 boxes" style="height:67vh">
+                    <div id="Intro" class="tabcontent text-center "> <!--id defines the image in the javascript button. 
+                        class=tabcontent is modified by the javascript Robotics  -->
+                          <img src="/Users/oluwatisefaithalatise/Desktop/Robotics 2018//Robotics 2018.001.jpeg" 
+                          alt="Image Cannot Be Displayed" width=68%>
+                      </div>
+                      
+                      <div id="2008" class="tabcontent text-center">
+                          <img src="/Users/oluwatisefaithalatise/Desktop/Robotics 2018//Robotics 2018.004.jpeg" alt="Image Cannot Be Displayed" width=68% style="float: center">
+                      </div>
+                      
+                      <div id="2009" class="tabcontent text-center">
+                          <img src="/Users/oluwatisefaithalatise/Desktop/Robotics 2018//Robotics 2018.005.jpeg" alt="Image Cannot Be Displayed" width=68%>
+                      </div>
+            </div>
+            <div class="col mt-3 ml-5 mr-5 boxes" style="height:67vh" ><!-- type="radio"This section displays the tab controlling the lead image. -->
+
+                <div class="btn-group btn-group-toggle tab" data-toggle="buttons"> <!--These buttons display the image and change the leading image by click. -->
+                        
+                        <label class="btn btn-secondary active">
+                          <img class="btn" id="defaultOpen" onclick="openImage(event, 'Intro')" 
+                          src="/Users/oluwatisefaithalatise/Desktop/Robotics 2018//Robotics 2018.001.jpeg" 
+                          alt="Image Cannot Be Displayed" width=100%>
+                        </label>
+
+                        <label class="btn btn-secondary">
+                            <img class="btn" onclick="openImage(event, '2008')" 
+                          src="/Users/oluwatisefaithalatise/Desktop/Robotics 2018//Robotics 2018.004.jpeg" 
+                          alt="Image Cannot Be Displayed" width=100%>
+                        </label>
+
+                        <label class="btn btn-secondary">
+                                <img class="btn" onclick="openImage(event, '2009')" 
+                                src="/Users/oluwatisefaithalatise/Desktop/Robotics 2018//Robotics 2018.005.jpeg" 
+                                alt="Image Cannot Be Displayed" width=100%>
+                        </label>
+                </div>
+
+            </div>
+>>>>>>> 27510d51a276488bbf124e17b1375e05f73a7927
         </div>
+
+        <script type="text/javascript" src="myscripts.js"></script> <!--My External JS FIle. 
+            Must be after for display to function properly. -->
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
