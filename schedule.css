@@ -1,13 +1,3 @@
-.alertBox {
-    border: 0.1vw solid black;
-}
-
-.alertBox > p {
-    font-size: 7vw;
-    text-align: center;
-    color: red;
-}
-
 .table-wrapper-scroll-y {
     display: block;
     max-height: 100%;

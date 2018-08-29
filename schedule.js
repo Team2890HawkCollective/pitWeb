@@ -1,3 +1,10 @@
+function initSchedule()
+{
+	storeUsers();
+	slackReader();
+	updateSettings();
+}
+
 /**
  * Pulls the settings from the modal and populates the match schedule table
  */
@@ -11,7 +18,7 @@ function updateSettings()
     wilDisplayData = doc.elements[3].checked;
     
     //Populates the table
-    updateMatchSchedule(teamNumber, eventKey, wilDisplayData, compareUsingMatchNumber); 
+	updateMatchSchedule(teamNumber, eventKey, wilDisplayData, compareUsingMatchNumber);
 }
 
 /**
