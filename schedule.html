@@ -6,16 +6,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="schedule.css">
+        <link rel="stylesheet" href="Styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="schedule.js"></script>
         <script type="text/javascript" src="clock.js"></script>
+        <script type="text/javascript" src="slack.js"></script>
         <script type="text/javascript">
-            window.onload = updateSettings;
+            window.onload = initSchedule;
         </script>
     </head>
-    <body>
+    <body class="bg">
         <!-- Navbar-->
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
             <!--Navbar Brand-->
@@ -90,6 +92,16 @@
                                 <label for="eventKey">Event Key:</label>
                                 <input type="text" class="form-control" id="eventKey" value="2018chcmp"></input>
                             </div>
+                            <!--Slack API key input-->
+                            <div class="form-group">
+                                <label for="slackAPI">Slack API Key</label>
+                                <input type="text" class="form-control" id="slackAPI" value="">
+                            </div>
+                            <!--Slack Channel ID input-->
+                            <div class="form-group">
+                                <label for="slackChannel">Slack Channel ID</label>
+                                <input type="text" class="form-control" id="slackChannel" value="">
+                            </div>
                             <b>Debugging tools</b>
                             <!--Match Number input-->
                             <div class="form-group">
@@ -122,17 +134,17 @@
         <!--/Settings modal-->
 
         <!--Alert Box-->
-        <div class="row">
-            <div class="col alertBox">
-                <p>!Alert!</p>
-            </div>
+        <div class="row fonts" style="height: 19vh">
+            <div class="col-4 mt-3 ml-5 mr-4.5 boxes" style="height:15vh; font-size: 2vw; color: black;" id="slackAlert">SLACK</div>
+            <div class="col mt-3 ml-5 mr-4.5 boxes" style="height:15vh" id="matchAlert">MATCH</div>
+            <div class="col-4 mt-3 ml-5 mr-5 boxes" style="height:15vh" id="discordAlert">DISCORD</div>
         </div>
         <!--/Alert Box-->
 
         <!--Bottom Box-->
 		<div class="row">
             <!--Match Schedule-->
-			<div class="col table-wrapper-scroll-y">
+			<div class="col table-wrapper-scroll-y boxes ml-5 mr-5" style="background-color: white;">
                 <!--Table-->
                 <table class="table table-striped table-bordered" id="schedule">
                     <!--Header-->
