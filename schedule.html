@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="schedule.css">
+        <link rel="stylesheet" href="Styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
@@ -16,7 +17,7 @@
             window.onload = initSchedule;
         </script>
     </head>
-    <body>
+    <body class="bg">
         <!-- Navbar-->
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
             <!--Navbar Brand-->
@@ -123,7 +124,7 @@
         <!--/Settings modal-->
 
         <!--Alert Box-->
-        <div class="row fonts" style="height: 15vh">
+        <div class="row fonts" style="height: 19vh">
             <div class="col-4 mt-3 ml-5 mr-4.5 boxes" style="height:15vh; font-size: 2vw; color: black;" id="slackAlert">SLACK</div>
             <div class="col mt-3 ml-5 mr-4.5 boxes" style="height:15vh" id="matchAlert">MATCH</div>
             <div class="col-4 mt-3 ml-5 mr-5 boxes" style="height:15vh" id="discordAlert">DISCORD</div>
@@ -133,7 +134,7 @@
         <!--Bottom Box-->
 		<div class="row">
             <!--Match Schedule-->
-			<div class="col table-wrapper-scroll-y">
+			<div class="col table-wrapper-scroll-y" style="background-color: white;">
                 <!--Table-->
                 <table class="table table-striped table-bordered" id="schedule">
                     <!--Header-->
