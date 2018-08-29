@@ -11,8 +11,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="schedule.js"></script>
         <script type="text/javascript" src="clock.js"></script>
+        <script type="text/javascript" src="slack.js"></script>
         <script type="text/javascript">
-            window.onload = updateSettings;
+            window.onload = initSchedule;
         </script>
     </head>
     <body>
@@ -122,10 +123,10 @@
         <!--/Settings modal-->
 
         <!--Alert Box-->
-        <div class="row">
-            <div class="col alertBox">
-                <p>!Alert!</p>
-            </div>
+        <div class="row fonts" style="height: 15vh">
+            <div class="col-4 mt-3 ml-5 mr-4.5 boxes" style="height:15vh; font-size: 2vw; color: black;" id="slackAlert">SLACK</div>
+            <div class="col mt-3 ml-5 mr-4.5 boxes" style="height:15vh" id="matchAlert">MATCH</div>
+            <div class="col-4 mt-3 ml-5 mr-5 boxes" style="height:15vh" id="discordAlert">DISCORD</div>
         </div>
         <!--/Alert Box-->
 

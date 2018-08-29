@@ -9,7 +9,7 @@ let slackChannel; //Channel ID for the slackbot
 /**
  * Runs on startup
  */
-function init()
+function initClock()
 {
 	storeUsers();
 	slackReader();
