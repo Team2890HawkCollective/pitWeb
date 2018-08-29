@@ -2,11 +2,11 @@ $(document).ready(function () {
   var i = 0;
   for (i = 0; i < localStorage.length; i++) {
       var taskID = i;
-      $('#taskList').append("<li id='" + taskID + "'>" + localStorage.getItem(taskID) + "</li>");
+      localStorage.getItem(taskID);
   }
   $('#taskEntryForm').submit(function () {
       if ($('#taskInput').val() !== "") {
-          var taskID = i;
+          var taskID = "task-" + i;
           var taskMessage = $('#taskInput').val();
           localStorage.setItem(taskID, taskMessage);
           $('#taskList').append("<li class='task' id='" + taskID + "'>" + taskMessage + "</li>");
