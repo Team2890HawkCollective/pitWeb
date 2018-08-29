@@ -36,8 +36,8 @@ function updatePage()
 	//updates data on webpage
 	updateAllianceColor(eventKey, teamNumber, matchNumber, willDisplayData);
 	updateMatchSchedule(teamNumber, eventKey, willDisplayData, compareUsingMatchNumber);
-	updateRank(teamNumber, eventKey, willDisplayData)
-	updateWinLossTie(teamNumber, eventKey, willDisplayData)
+	updateRank(teamNumber, eventKey, willDisplayData);
+	updateWinLossTie(teamNumber, eventKey, willDisplayData);
 	updateTeamMates(teamNumber, eventKey, willDisplayData, matchNumber, isBlue(getMatch(getMatches(teamNumber, eventKey, willDisplayData), matchNumber), teamNumber));
 	updateOpponents(teamNumber, eventKey, willDisplayData, matchNumber, isBlue(getMatch(getMatches(teamNumber, eventKey, willDisplayData), matchNumber), teamNumber));
 	updateTimer();
