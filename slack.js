@@ -73,18 +73,23 @@ function slackReader()
                     }
 
                     //only show the 8 most recent messages
-                    while (messageList.length > 8)
-                    {
-                        messageList.shift(); //removes the oldest message
-                    }
+                    //while (messageList.length > 8)
+                    //{
+                        //messageList.shift(); //removes the oldest message
+                    //}
 
                     document.getElementById("alertBox").innerHTML = ""; //clears the chat before refilling
                     
                     //Run through the array of messages and re-populate the chat
-                    for (let b of messageList)
+                    //for (let b of messageList)
+                    //{
+                        //document.getElementById("alertBox").innerHTML += (b + "<br>");
+                    //}
+                    for (i = messageList.length - 1; i >= 0; i--)
                     {
-                        document.getElementById("alertBox").innerHTML += (b + "<br>");
+                        document.getElementById("alertBox").innerHTML += (messageList[i] + "<br>");
                     }
+                    
                 }
             });
         }
