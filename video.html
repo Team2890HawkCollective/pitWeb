@@ -4,6 +4,7 @@
         <title>pitWeb Livestream</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel = "stylesheet" href = "Styles.css">
+        <script type="text/javascript" src="myscripts.js"></script> 
     </head>
 
     <body class="bg">
@@ -42,6 +43,46 @@
             <!--/Navbar-->
         </nav>
 
+        <!--Settings modal-->
+        <div class="modal hide fade" id="settingsModal">
+            <div class="modal-dialog modal-lg">
+                <!--Modal content-->
+                <div class="modal-content">
+                    <!--Modal header-->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Settings</h4>
+                        <button type="button" class="close" data-dismiss="modal">X</button>
+                    </div>
+                    <!--/Modal header-->
+
+                    <!--Modal body-->
+                    <div class="modal-body">
+                        <!--Settings form-->
+                        <form id="videosettings">
+                            <!--Twitch stream input-->
+                            <div class="form-group">
+                                <label for="channelID">Twitch Stream Channel Name:</label>
+                                <input type="text" class="form-control" id="channel" value="">
+                            </div>
+                        </form> 
+                        <!--Settings form-->
+                    </div>
+                    <!--Modal body-->
+
+                    <!--Modal footer-->
+                    <div class="modal-footer">
+                        <!--Close button-->
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <!--Save button (calls updateSettings())-->
+                        <button type="button" class="btn btn-primary" onclick="changeChannelID();" data-dismiss="modal">Save</button>
+                    </div>
+                    <!--/Modal footer-->
+                </div>
+                <!--/Modal content-->
+            </div>
+        </div>
+        <!--/Settings modal-->
+
         <div class="row fonts" style="height: 15vh">
             <div class="col-4 mt-3 ml-5 mr-4.5 boxes" style="height:15vh">SLACK</div>
             <div class="col mt-3 ml-5 mr-4.5 boxes" style="height:15vh">MATCH</div>
@@ -51,13 +92,16 @@
         <div class="row fonts" style="height: 70vh">
             <div class="col mt-5 ml-5 mr-5 mb-3 boxes embed-responsive embed-responsive-16by9" style= "height: 70vh">
                 <iframe class="embed-responsive-item"
-                src="https://player.twitch.tv/?channel=monstercat"
+                src=""
                 frameborder="0" 
                 allowfullscreen="true" 
                 scrolling="no" 
-                width="100%"
+                height="378" 
+                width="620"
                 id="twitchplayer">
-            </iframe>
+                </iframe>
+
+            
             </div>
         </div>
 
