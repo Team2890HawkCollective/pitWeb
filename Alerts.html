@@ -4,50 +4,193 @@
         <title>pitWeb Alerts</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel = "stylesheet" href = "Styles.css">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="stylesheet" type="text/css" href="tasklist.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script type="text/javascript" src="clock.js"></script>
+        <script type="text/javascript" src="alerts.js"></script>
+        <script type="text/javascript" src="tasklist.js"></script>
+        <script type="text/javascript">
+            window.onload = updatoAlerto; 
+        </script>
     </head>
     <body class="bg">
-        <nav class= "navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">pitWeb</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <!-- Navbar-->
+       <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <!--Navbar Brand-->
+                <a class="navbar-brand" href="home.html">PitWeb</a>
+            <!--/Navbar Brand-->
+
+            <!--Collapse Navbar button-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                          <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                          </li>
-                          <li class="nav-item">
-                                <a class="nav-link mx-2" href="#">Alerts</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link mx-2" href ="#">Match Schedule</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link mx-2">Notepad</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link mx-2">Photos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link mx-2">Refrences</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link mx-2">Scouting App</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link mx-2">Livestream</a>
-                            </li>
-                        </ul>
-            
+            <!--/Collapse Navbar button-->
+
+            <!--Navbar body-->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <!--Navbar items-->
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link mx-2" href="alerts.html">Alerts</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2 active" href="clock.html">Match Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="notepad.html">Notepad</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="photos.html">Photos</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="references.html">References</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="scouting.html">Scouting App</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="video.html">Game Livestream</a></li>
+                </ul>
+                <!--/Navbar items-->
+
+                <!--Settings page button-->
+                <button type="button" class="btn btn-outline-light navbar-btn" data-toggle="modal" data-target="#settingsModal">Settings</button>
+                <!--/Settings page button-->
             </div>
-        </nav>
+            <!--/Navbar body-->
+        </nav>   
+        <!--/Navbar-->
+
+        <!--Settings modal-->
+        <div class="modal hide fade" id="settingsModal">
+                <div class="modal-dialog modal-lg">
+                    <!--Modal content-->
+                    <div class="modal-content">
+                        <!--Modal header-->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Settings</h4>
+                            <button type="button" class="close" data-dismiss="modal">X</button>
+                        </div>
+                        <!--/Modal header-->
+    
+                        <!--Modal body-->
+                        <div class="modal-body">
+                            <!--Settings form-->
+                            <form id="settings">
+                                <!--Team number input-->
+                                <div class="form-group">
+                                    <label for="teamNumber">Team Number:</label>
+                                    <input type="text" class="form-control" id="teamNumber" value="">
+                                </div>
+                                <!--Event key input-->
+                                <div class="form-group">
+                                    <label for="eventKey">Event Key:</label>
+                                    <input type="text" class="form-control" id="eventKey" value="">
+                                </div>
+                                <!--Slack API key input-->
+                                <div class="form-group">
+                                    <label for="slackAPI">Slack API Key</label>
+                                    <input type="text" class="form-control" id="slackAPI" value="">
+                                </div>
+                                <!--Slack Channel ID input-->
+                                <div class="form-group">
+                                    <label for="slackChannel">Slack Channel ID</label>
+                                    <input type="text" class="form-control" id="slackChannel" value="">
+                                </div>
+                                <b>Debugging tools</b>
+                                <!--Match Number input-->
+                                <div class="form-group">
+                                    <label for="matchNum">Match Number:</label>
+                                    <input type="text" class="form-control" id="matchNum" value="">
+                                </div>
+                                <!--Display data in console checkbox-->
+                                <div class="form-group form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox"> Print requested data in console 
+                                    </label>
+                                </div>
+                            </form> 
+                            <!--Settings form-->
+                        </div>
+                        <!--Modal body-->
+    
+                        <!--Modal footer-->
+                        <div class="modal-footer">
+                            <!--Close button-->
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            <!--Save button (calls updateSettings())-->
+                            <button type="button" class="btn btn-primary" onclick="updatoAlerto();" data-dismiss="modal">Save</button>
+                        </div>
+                        <!--/Modal footer-->
+                    </div>
+                    <!--/Modal content-->
+                </div>
+            </div>
+            <!--/Settings modal-->
        
        
         <div class="row fonts" style= "height: 60vh">
             
-            <div class="col-4 mt-5 ml-5 mr-4.5 mb-5 boxes" style=" height: 60vh">SLACK </div>
-            <div class="col mt-5  mb-1  ml-5 mr-4.5 boxes" style="height: 60vh">TASK LIST</div>
-            <div class="col-4 mt-5  mb-5 ml-5 mr-5 boxes" style="height: 60vh">DISCORD</div>
+            <div class="col-4 mt-5 ml-5 mr-4.5 mb-5 boxes smfonts" style=" height: 60vh">Slack
+                <!--Alert Box-->
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <!--<div class="col alertBox" id="alertBox">
+                            </div> -->
+                        </div>
+                        <div class="row">
+                            <div class="col" id="sendMessage">
+                                <form class="form-inline" id="messageForm">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="message" style="width: 29.5vw"></input>
+                                        <button type="button" onclick="sendMessage();" class="btn btn-secondary">Send</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="col alertBox" style="display: block; max-height: 50vh; max-width: 30vw; overflow-y: scroll; -ms-overflow-style: -ms-autohiding-scrollbar; text-align: left;">
+                        <tr>
+                            <td id="alertBox">
+                            </td>
+                        </tr>
+                    </table> 
+                </div>
+            <!--/Alert Box-->
+            </div>
+            <div class="col mt-5  mb-1  ml-5 mr-4.5 boxes" style="height: 60vh">
+                    <!-- <div id="container">
+                            <header>
+                                <h1 class="listheader">Task List</h1>
+                                <a href="#" id="clear">Clear all</a>
+                                
+                            </header>
+                            <section id="taskIOSection">
+                                <div id="formContainer">
+                                    <form id="taskEntryForm">
+                                        <input id="taskInput" placeholder="What would you like to do today?" />
+                                    </form>
+                                </div>
+                            <ul id="taskList" class="todolistul"></ul>
+                            </section>
+                        </div> -->
+            </div>
+            <div class="col-4 mt-5  mb-5 ml-5 mr-5 boxes smfonts" style="height: 60vh">Discord
+                <widgetbot
+                    server="266074632056995840"
+                    channel="474305299545587712"
+                    id="embed"
+                    height="54vh"
+                    width="100%"
+                ></widgetbot>
+                <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
+
+                <script>
+                const embed = document.getElementById('embed')
+
+                /*embed.on('signIn', data => {
+                    console.log(`Guest signed in as ${data.name}`)
+                    embed.emit('sendMessage', 'Hello world')
+                })*/
+                </script>
+            </div>
         </div>
 
         <div class ="row">
@@ -56,15 +199,12 @@
 
         <div class ="row fonts">
             <div class="col-4 mt-5 ml-5 mr-5 boxes" style="font-family:'Courier New', Courier, monospace;height: 15vh">2890: Good Luck!</div>
-            <div class="col mt-5 ml-5 mr-5 rboxes" style="height: 15vh">Q#</div>
-            <div class="col-4 mt-5 ml-5 mr-5 boxes" style="height:15vh">00:00:00</div>
+            <div class="col mt-5 ml-4.5 mr-4.5 rboxes" style="height: 15vh">00:00:00</div>
+            <div class="col-4 mt-5 ml-5 mr-5 boxes" style="height:15vh">COLOR - Q#</div>
         </div>
-            
-        
-       
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+        <script type="text/javascript" src="slack.js"></script>
+        <script type="text/javascript" src="settings.js"></script>
     </body>
 
-    </html>
+</html>
