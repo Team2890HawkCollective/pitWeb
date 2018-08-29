@@ -4,12 +4,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="stylesheet" type="text/css" href="tasklist.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
         <script type="text/javascript" src="clock.js"></script>
         <script type="text/javascript" src="alerts.js"></script>
+        <script type="text/javascript" src="tasklist.js"></script>
         <script type="text/javascript">
             window.onload = updatoAlerto; 
         </script>
@@ -117,32 +119,46 @@
         </div>
         <!--/Settings modal-->
 
-        <!--Alert Box-->
-        <div class="row">
-            <div class="col">
-                <div class="row">
-                    <div class="col alertBox" id="alertBox">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col" id="sendMessage">
-                        <form class="form-inline" id="messageForm">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="message" style="width: 95vw"></input>
-                            </div>
-                            <button type="button" onclick="sendMessage();" class="btn btn-secondary">Send</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/Alert Box-->
-
         <div class="row" style="height: 60vh">
+            <div class="col-5 listborders">
+             <!--Alert Box-->
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col alertBox" id="alertBox">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col" id="sendMessage">
+                                <form class="form-inline" id="messageForm">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="message" style="width: 95vw"></input>
+                                    </div>
+                                    <button type="button" onclick="sendMessage();" class="btn btn-secondary">Send</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!--/Alert Box-->
+            </div>
+
             <div class="col-2 listborders">
-                <font size="5vw">Task List</font>
-                <!-- <iframe width="100%" height="100%" src="https://docs.google.com/document/d/1vwCOhDxH1_ODmeBlTHRAkRQUq5iMOFqqRurJl40JyBo/edit?usp=sharing"></iframe> -->
-                <iframe width="100%" height="100%" src="https://onlinenotepad.org/app"></iframe>
+                <div id="container">
+                    <header>
+                        <h1 class="listheader">Task List</h1>
+                        <a href="#" id="clear">Clear all</a>
+                        
+                    </header>
+                    <section id="taskIOSection">
+                        <div id="formContainer">
+                            <form id="taskEntryForm">
+                                <input id="taskInput" placeholder="What would you like to do today?" />
+                            </form>
+                        </div>
+                    <ul id="taskList" class="todolistul"></ul>
+                    </section>
+                </div>
             </div>
             <div class="col-5 listborders">
                 <font size="5vw">Discord</font>

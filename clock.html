@@ -5,18 +5,19 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="clock.css">
+        <link rel="stylesheet" href="Styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="clock.js"></script>
         <script type="text/javascript" src="schedule.js"></script>
         <script type="text/javascript" src="timer.js"></script>
+        <script type="text/javascript" src="slack.js"></script>
         <script type="text/javascript">
             window.onload = init; 
         </script>
     </head>
-    <body> 
+    <body class="bg"> 
         <!-- Navbar-->
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
             <!--Navbar Brand-->
@@ -118,53 +119,40 @@
         </div>
         <!--/Settings modal-->
 
-        <!--Alert Box-->
-        <div class="row">
-            <div class="col alertBox" id="alertBox">
-            </div>
+        <div class="row fonts" style="height: 15vh">
+            <div class="col-4 mt-3 ml-5 mr-4.5 boxes" style="height:15vh; font-size: 2vw; color: black;" id="slackAlert">SLACK</div>
+            <div class="col mt-3 ml-5 mr-4.5 boxes" style="height:15vh" id="matchAlert">MATCH</div>
+            <div class="col-4 mt-3 ml-5 mr-5 boxes" style="height:15vh" id="discordAlert">DISCORD</div>
         </div>
-        <!--/Alert Box-->
 
-        <!--Center Box-->
-        <div class="row centerBox">
-    
-            <!--Ally Color-->
-			<div class="col allyColor" id="allyColor">
-				<p></p>
-            </div>
+        <div class ="row" style="height:5vh">
+            <div class="col-12" style="color:lightslategray">sad</div>
+        </div>
 
-            <!--Match Number-->
-			<div class="col matchNumber" id="matchNumber">
-            </div>
+        <div class="row fonts" style="height:15vh">
+            <div class ="col-4 mt-3 ml-5 mr-1 boxes" id="allyColor" style="height:15vh; font-size: 5vw;">COLOR : Q#</div>
+            <div class ="col-7 mt-3 ml-5 mr-5 rboxes" id="timer" style="height: 15vh; font-size: 5vw;">00:00:00</div>
+        </div>
 
-            <!--Timer bar-->
-            <div class="col-4 timer" id="timer">
-            </div>
-            
-            <!--Right center box-->
-            <div class="col-4">
+        <div class ="row" style="height:5vh">
+                <div class="col-12" style="color:lightslategray">sad</div>
+        </div>
+
+        <div class="row" style="height:60vh">
+            <div class="col">
                 <div class="row">
-                    <!--Teammates-->
-			        <div class="col teammates" id="teammates">
-                    </div>
+                    <div class="col mt-0 ml-5 mr-2 mb-3 pt-3 boxes smfonts" id="teammates" style="height: 27vh; font-size: 4vw;">222<br>333<br></div>
+                    <div class="col mt-0 ml-2 mr-2 mb-3 boxes smfonts" id="opponents" style="height: 27vh; font-size: 3vw;">555<br>666<br>777</div>
                 </div>
                 <div class="row">
-                    <!--Opponents-->
-			        <div class="col opponents" id="opponents">
-                    </div>
+                    <div class="col mt-2 ml-5 mr-2 mb-0 boxes smfonts" id="rank" style="height: 20vh; font-size: 3.5vw;">Rank<br>#</div>
+                    <div class="col mt-2 ml-2 mr-2 mb-0 pt-4 boxes smfonts" id="wlt" style="height: 20vh; font-size: 5vw;">w/l/t</div>
                 </div>
             </div>
-            <!--/Right Center Box-->
-        </div>
-        <!--/Center Box-->
-
-        <!--Bottom Box-->
-		<div class="row bottomBox">             
-            <!--Match Schedule-->
-			<div class="col table-wrapper-scroll-y">
+            <div class="col-7 ml-5 mr-5 mb-5 boxes" style="height:50vh; background-color: white;">
                 <a href="schedule.html">   <!--Makes the schedule clickable and opens a fullscreen view-->
                 <!--Table-->
-                    <table class="table table-striped table-bordered" id="schedule">
+                    <table class="table table-striped table-bordered" style="display: block; max-height: 100%; overflow-y: auto; -ms-overflow-style: -ms-autohiding-scrollbar; font-size: 1.85vw;" id="schedule">
                         <!--Header-->
                         <thead>
                             <tr>
@@ -188,31 +176,8 @@
                     <!--/Table-->
                 </a>
             </div>
-            <!--/Match Schedule-->
-
-            <!--Right Bottom Box-->
-			<div class="col">
-                <div class="row">
-                    <!--Rank-->
-					<div class="col rank" id="rank">
-						<b>Rank:</b> <br><b style="font-size: 8vw"></b>
-					 </div>
-        
-                     <!--Right Right Bottom Box-->
-				    <div class="col">
-                        <div class="row">
-                            <!--Win Losses Ties-->
-					        <div class="col wlt" id="wlt">
-                            </div>
-                        </div>
-                    </div>
-                    <!--/Right Right Bottom Box-->
-                </div>
-            </div>
-            <!--/Right Bottom Box-->
         </div>
         <!--/Bottom Box-->
         <script type="text/javascript" src="settings.js"></script> <!--Runs the settings.js file which loads previously saved settings-->
-        <script type="text/javascript" src="slack.js"></script>
     </body>
 </html>

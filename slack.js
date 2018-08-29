@@ -1,5 +1,6 @@
 let userList;
 let messageList;
+let color = true;
 
 //Prevent the enter button from refreshing the page
 document.getElementById('messageForm').addEventListener('submit', function(e) {
@@ -48,7 +49,28 @@ function slackReader()
                     }
 
                     //Adds the message to the array of messages
-                    messageList.push(name + ": " + text);
+
+                    if (text.substr(0, 11) == "!important!")
+                    {
+                        messageList.push(name + ": " + text.substr(11));
+                        document.getElementById("slackAlert").innerHTML = name + ": " + text.substr(11);
+
+                        color = !color;
+
+                        if (color)
+                        {
+                            document.getElementById("slackAlert").style.backgroundColor = "DeepPink";
+                        }
+                        else
+                        {
+                            document.getElementById("slackAlert").style.backgroundColor = "Cyan";
+                        }
+
+                    }
+                    else
+                    {
+                        messageList.push(name + ": " + text);
+                    }
 
                     //only show the 8 most recent messages
                     while (messageList.length > 8)

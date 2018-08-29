@@ -48,6 +48,24 @@ function runTimer(currentTime, targetTime, teamNumber, eventKey, willDisplayData
                 }
             }
         }
+
+        if (difference.getUTCMinutes <= 10 && !difference.getUTCMinutes <= 5 && !difference.getUTCMinutes <= 1)
+        {
+            document.getElementById("matchAlert").innerHTML = "Next Match in 10 minutes";
+            document.getElementById("matchAlert").style.backgroundColor = "green";
+        }
+
+        if (difference.getUTCMinutes <= 5 && !difference.getUTCMinutes <= 1)
+        {
+            document.getElementById("matchAlert").innerHTML = "Next Match in 5 minutes";
+            document.getElementById("matchAlert").style.backgroundColor = "yellow";
+        }
+
+        if (difference.getUTCMinutes <= 1)
+        {
+            document.getElementById("matchAlert").innerHTML = "Next Match in 5 minutes";
+            document.getElementById("matchAlert").style.backgroundColor = "red";
+        }
     }, 1000);
 }
 
