@@ -1,4 +1,4 @@
-.listheader {
+/* .listheader {
     font-size: 1.5em;
 }
 .todolistul {
@@ -6,4 +6,113 @@
 }
 .done {
     text-decoration: line-through;
+} */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.holder{
+	max-width: 400px;
+	width: 100%;
+	margin: 20px auto 0 auto;
+	padding: 20px;
+	border: 2px solid #0099cc;
+	
+	text-align: center;
+	border-radius: 10px;
+}
+
+input{
+	padding: 10px 20px;
+	margin-bottom: 20px;
+}
+
+
+#add{
+	padding: 10px 40px;
+	background-color: transparent;
+	border: 1px solid #0099cc;
+	cursor: pointer;
+	transition: .4s;
+	color: #0099cc;
+	margin-bottom: 20px;
+}
+
+#add:hover{
+	background-color: #0099cc;
+	color: #fff;
+}
+
+.save ,.removeBtn , .edit{
+	background-color: transparent;
+	border: 1px solid  #fff;
+	cursor: pointer;
+	padding: 10px 20px;
+	font-family:'Arsenal', sans-serif;
+	color: #fff;
+	font-size: 18px;
+	transition: .4s;
+	margin: 20px 10px 0 10px;
+}
+
+.save:hover , .edit:hover , .removeBtn:hover{
+	background-color: #fff;
+	color: #000;
+}
+
+
+/* font awesome button icons */
+#add{
+	font-size: 0;
+}
+
+#add:before{
+	content: '\f067';
+	display: inline-block;
+	font-family: "fontawesome";
+	font-size: 20px;
+}
+
+.edit , .save , .removeBtn{
+	font-size: 0;
+}
+
+.edit:before{
+	content: '\f040';
+	display: inline-block;
+	font-family: "fontawesome";
+	font-size: 20px;
+}
+
+.save:before{
+	content: '\f0c7';
+	display: inline-block;
+	font-family: "fontawesome";
+	font-size: 20px;
+}
+
+.removeBtn:before{
+	content: '\f00d';
+	display: inline-block;
+	font-family: "fontawesome";
+	font-size: 20px;
+}
+
+.todo{
+	background-color: #0099cc;
+	margin-bottom: 10px;
+	padding: 20px;
+	color: #fff;
+	border-radius: 10px;
+}
+
+.todo span{
+	display:block;
+	word-wrap:break-word;
+	color: #fff;
+	font-size: 20px;
+	font-family:'Arsenal', sans-serif;
 }
