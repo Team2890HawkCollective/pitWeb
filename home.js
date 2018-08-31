@@ -1,7 +1,8 @@
 function initHome()
 {
     slackReader();
-    storeUsers();
+	storeUsers();
+	changeChannelID();
     updateHomepage();
     updateHomepagePeriodic();
 }
@@ -17,8 +18,9 @@ function updateHomepage()
 	eventKey = doc.elements[1].value;
 	slackAPI = doc.elements[2].value;
 	slackChannel = doc.elements[3].value;
-	matchNumber = doc.elements[4].value;
-	willDisplayData = doc.elements[5].checked;
+	twitchID = doc.elements[4].value;
+	matchNumber = doc.elements[5].value;
+	willDisplayData = doc.elements[6].checked;
 
 	matchNumber = (getNextMatch(Date.now(), teamNumber, eventKey, willDisplayData, matchNumber)).match_number;
 
@@ -33,7 +35,8 @@ function updateHomepage()
  */
 function updateHomepagePeriodic()
 {
+	clearInterval(interval);
 	let interval = setInterval(function() {
-		updatePage();
-	}, 60000);
+		updateHomepage();
+	}, 1000);
 }

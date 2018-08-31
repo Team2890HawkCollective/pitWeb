@@ -33,8 +33,9 @@ function updatePage()
 	eventKey = doc.elements[1].value;
 	slackAPI = doc.elements[2].value;
 	slackChannel = doc.elements[3].value;
-	matchNumber = doc.elements[4].value;
-	willDisplayData = doc.elements[5].checked;
+	twitchID = doc.elements[4].value;
+	matchNumber = doc.elements[5].value;
+	willDisplayData = doc.elements[6].checked;
 
 	updateTimer();
 
