@@ -29,9 +29,9 @@ Navigate [here](https://github.com/Team2890/pitWeb) and follow [Usage](#Usage)
 
 ~~[References](#references)~~
 
-~~[ScoutingApp](#scoutingApp)~~
+~~[ScoutingApp](#scouting-app)~~
 
-[GameLivestream](#gameLivestream)
+[GameLivestream](#game-livestream)
 
 [Settings](#settings)
 
@@ -39,7 +39,7 @@ Navigate [here](https://github.com/Team2890/pitWeb) and follow [Usage](#Usage)
 Main page where the most important information for the pit crew is displayed
 
 #### Page Elements
-[AlertsBar](#alertsBar)
+[AlertsBar](#alerts-bar)
 
 [Video](#video)
 
@@ -52,11 +52,11 @@ Main page where the most important information for the pit crew is displayed
 [ColorQ#](#colorQ#)
 
 #### Alerts Bar
-[Slack](#slackAlerts)
+[Slack](#slack-alerts)
 
-[Match](#MatchAlerts)
+[Match](#match-alerts)
 
-~~[Discord](#DiscordAlerts)~~
+~~[Discord](#discord-alerts)~~
 
 ##### Slack Alerts
 Displays messages sent in the channel designated in the [Slack Channel ID](#Slack Channel ID) if they have '!important!' at the beginning.
