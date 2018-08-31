@@ -4,6 +4,10 @@ A website to display information to the pit crew during a competition
 ## Table Of Contents
 [Installation](#Installation)
 
+[PageList](#page-list)
+
+[Setup](#setup)
+
 ## Installation
 'git clone https://github.com/Team2890/pitWeb.git'
 
@@ -189,7 +193,7 @@ Not currently working
 Shows the currently selected image and the list of available images to view on the left
 
 #### Video
-Displays the twitch stream from the [TwitchStreamhannelName](#twitch-stream-channel-name) field in [settings](#setting)
+Displays the twitch stream from the [TwitchStreamChannelName](#twitch-stream-channel-name) field in [settings](#setting)
 
 #### Slack
 Allows the user to post messages and view messages from the slack channel specified in the [SlackChannelID](slack-channel-id) field in [settings](#settings)
@@ -212,14 +216,14 @@ Displays the teammates for the next match for the team specified in the [TeamNum
 
 Match can be manually set in the [MatchNumber](#match-number) field in [settings](#settings)
 
-Changes color from [!#0000FF](https://placehold.it/15/0000FF/000000?text=+) Blue and [#FF0000](https://placehold.it/15/FF0000/000000?text=+) Red  based on the alliance color
+Changes color from ![#0000FF](https://placehold.it/15/0000FF/000000?text=+) Blue and ![#FF0000](https://placehold.it/15/FF0000/000000?text=+) Red  based on the alliance color
 
 #### Opponents
 Displays the opponents for the next match for the team specified in the [TeamNumber](#team-number) field at the specified [EventKey](#event-key) field in [settings](#settings)
 
 Match can be manually set in the [MatchNumber](#match-number) field in [settings](#settings)
 
-Changes color from [!#0000FF](https://placehold.it/15/0000FF/000000?text=+) Blue and [#FF0000](https://placehold.it/15/FF0000/000000?text=+) Red based on the alliance color
+Changes color from ![#0000FF](https://placehold.it/15/0000FF/000000?text=+) Blue and ![#FF0000](https://placehold.it/15/FF0000/000000?text=+) Red based on the alliance color
 
 #### Top 5
 Not currently working
@@ -243,11 +247,21 @@ Schedule is formatted as:
 - Red 2
 - Red 3
 
-The team is highlighted in either [!#0000FF](https://placehold.it/15/0000FF/000000?text=+) Blue or [#FF0000](https://placehold.it/15/FF0000/000000?text=+) Red based on their alliance
+The team is highlighted in either ![#0000FF](https://placehold.it/15/0000FF/000000?text=+) Blue or ![#FF0000](https://placehold.it/15/FF0000/000000?text=+) Red based on their alliance
 
 #### ColorQ#
 Displays the next match for the team specified in the [TeamNumber](#team-number) field at the specified [EventKey](#event-key) field in [settings](#settings)
 
 Match can be manually set in the [MatchNumber](#match-number) field in [settings](#settings)
 
-Changes color from [!#0000FF](https://placehold.it/15/0000FF/000000?text=+) Blue and [#FF0000](https://placehold.it/15/FF0000/000000?text=+) Red  based on the alliance color
+Changes color from ![#0000FF](https://placehold.it/15/0000FF/000000?text=+) Blue and ![#FF0000](https://placehold.it/15/FF0000/000000?text=+) Red  based on the alliance color
+
+## Setup
+1. Fill in:
+    - [TeamNumber](#team-number)
+    - [EventKey](#event-key)
+    - [SlackAPIKey](#slack-api-key)
+    - [SlackChannelID](#slack-channel-id)
+    - [TwitchStreamChannelName](#twitch-stream-channel-name)
+2. Click the save button
+
