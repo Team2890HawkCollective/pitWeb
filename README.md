@@ -53,7 +53,7 @@ Main page where the most important information for the pit crew is displayed
 
 [Rank](#rank)
 
-[ColorQ#](#colorQ#)
+[ColorQ#](#colorq)
 
 ### Alerts
 Used to send and read Discord and Slack messages, know what and when the next match is, and add/delete items from a task list
@@ -67,7 +67,7 @@ Used to send and read Discord and Slack messages, know what and when the next ma
 
 [Timer](#timer)
 
-[ColorQ#](#colorQ#)
+[ColorQ#](#colorq)
 
 ### Clock
 Shows the most important information pertaining to the team's standings and the next match
@@ -75,7 +75,7 @@ Shows the most important information pertaining to the team's standings and the 
 #### Page Elements
 [AlertsBar](#alerts-bar)
 
-[ColorQ#](#colorQ#)
+[ColorQ#](#colorq)
 
 [Timer](#timer)
 
@@ -130,14 +130,14 @@ Settings include:
 ### Settings Elements
 
 #### Team Number
-The team number to be used for the [rank](#rank), [schedule](#schedule), [timer](#timer), [win-loss-tie](#win-loss-tie), [colorQ](#colorq#), [matchAlerts](#match-alerts), [teammates](#teammates), and [opponents](#opponents)
+The team number to be used for the [rank](#rank), [schedule](#schedule), [timer](#timer), [win-loss-tie](#win-loss-tie), [colorQ](#colorq), [matchAlerts](#match-alerts), [teammates](#teammates), and [opponents](#opponents)
 
 Formatted as: frc####
 
 #### Event Key
 The key for the event from [TheBlueAlliance](https://www.thebluealliance.com/events/)
 
-Used for the [rank](#rank), [schedule](#schedule), [timer](#timer), [win-loss-tie](#win-loss-tie), [colorQ](#colorq#), [matchAlerts](#match-alerts), [teammates](#teammates), and [opponents](#opponents)
+Used for the [rank](#rank), [schedule](#schedule), [timer](#timer), [win-loss-tie](#win-loss-tie), [colorQ](#colorq), [matchAlerts](#match-alerts), [teammates](#teammates), and [opponents](#opponents)
 
 Formatted as: \[year][characters]\
 
@@ -159,7 +159,7 @@ The channel name for the twitch stream to use for the [video](#video)
 #### Match Number
 **DEBUGGING OPTION**
 
-Allows user to manually set a match number for the [timer](#timer), [colorQ](#colorq#), [matchAlerts](#match-alerts), [teammates](#teammates), and [opponents](#opponents)
+Allows user to manually set a match number for the [timer](#timer), [colorQ](#colorq), [matchAlerts](#match-alerts), [teammates](#teammates), and [opponents](#opponents)
 
 #### Print Requested Data in Console
 **DEBUGGING OPTION**
