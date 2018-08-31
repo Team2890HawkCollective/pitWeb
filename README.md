@@ -1,14 +1,22 @@
 # pitWeb
 A website to display information to the pit crew during a competition
+
 ##Table Of Contents
 [Installation](#Installation)
+
 ##Installation
 'git clone https://github.com/Team2890/pitWeb.git'
+
 Place files on web server
+
 **OR**
+
 Navigate [here](https://github.com/Team2890/pitWeb) and follow [Usage](#Usage)
+
 ##Usage
+
 ###Page List
+
 [Home](#Home)
 [Alerts](#Alerts)
 [Clock](#Clock)
@@ -18,8 +26,10 @@ Navigate [here](https://github.com/Team2890/pitWeb) and follow [Usage](#Usage)
 ~~[Scouting App](#Scouting App)
 [Game Livestream](#Game Livestream)
 [Settings](#Settings)
+
 ####Home
 Main page where the most important information for the pit crew is displayed
+
 #####Page Elements
 [Alerts Bar](#Alerts Bar)
 [Video](#Video)
@@ -27,10 +37,12 @@ Main page where the most important information for the pit crew is displayed
 ~~[Top 5](#Top 5)~~
 [Rank](#Rank)
 [Color: Q#](#Color: Q#)
+
 #####Alerts Bar
 [Slack](#Slack Alerts)
 [Match](#Match Alerts)
 ~~[Discord](#Discord Alerts)~~
+
 ######Slack Alerts
 Displays messages sent in the channel designated in the [Slack Channel ID](#Slack Channel ID) if they have '!important!' at the beginning.
 
