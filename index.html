@@ -13,6 +13,7 @@
         <script type="text/javascript" src="timer.js"></script>
         <script type="text/javascript" src="slack.js"></script>
         <script type="text/javascript" src="home.js"></script>
+        <script type="text/javascript" src="video.js"></script>
         <script type="text/javascript">
             window.onload = initHome; 
         </script>
@@ -34,7 +35,7 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <!--Navbar items-->
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link mx-2 active" href="alerts.html">Alerts</a></li>
+                        <li class="nav-item"><a class="nav-link mx-2" href="alerts.html">Alerts</a></li>
                         <li class="nav-item"><a class="nav-link mx-2" href="clock.html">Clock</a></li>
                         <li class="nav-item"><a class="nav-link mx-2" href="notepad.html">Notepad</a></li>
                         <li class="nav-item"><a class="nav-link mx-2" href="photos.html">Photos</a></li>
@@ -89,6 +90,11 @@
                                 <label for="slackChannel">Slack Channel ID</label>
                                 <input type="text" class="form-control" id="slackChannel" value="">
                             </div>
+                            <!--Twitch stream input-->
+                            <div class="form-group">
+                                <label for="channelID">Twitch Stream Channel Name:</label>
+                                <input type="text" class="form-control" id="channel" value="">
+                            </div>
                             <b>Debugging tools</b>
                             <!--Match Number input-->
                             <div class="form-group">
@@ -133,7 +139,10 @@
         <div class="row" style="height:54vh">
             <div class="col-8">
                 <div class="row">
-                    <div class="col ml-5 mr-3 boxes fonts" style="height: 70vh">VIDEO</div>
+                    <div class="col ml-5 mr-3 boxes fonts" style="height: 70vh">
+                        <iframe class="embed-responsive-item" src="" frameborder="0" allowfullscreen="true" scrolling="no" height="100%" width="100%" id="twitchplayer">
+                        </iframe>
+                    </div>
                 </div>
             </div>
             <div class="col">
@@ -148,10 +157,6 @@
                     <div class="col mt-3 ml-3 mr-5 mb-5 boxes fonts" id="allyColor" style="height: 19vh; font-size: 4.5vw;">COLOR : Q#</div>
                 </div>
             </div>
-        </div>
-
-        <div class ="row">
-            
         </div>
         <script type="text/javascript" src="settings.js"></script> <!--Runs the settings.js file which loads previously saved settings-->
     </body>
