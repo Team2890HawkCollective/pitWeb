@@ -1,16 +1,27 @@
 $(document).ready(function () {
+
     var i = 0;
-    for (i = 0; i <= localStorage.length; i++) {
-        
-        var taskID = "task-" + i;
+    var k = localStorage.length; 
+    console.log(localStorage.length);
+    for (l = 0; l < k; l++) {
+        var taskID = "task-" + (l);
         if (localStorage.getItem(taskID) != null) {
             $('#taskList').append("<li id='" + taskID + "'>" + localStorage.getItem(taskID) + "</li>");
+            console.log("Value of l:" + l);
         }
         else {
-            console.log("No value");
+            k = k +1;
         }
     }
+
     $('#clear').click(function () {
+            /*    self = $(this);
+            taskID = self.attr('id');
+            localStorage.removeItem(taskID);
+            self.slideUp('slow', function () {
+                self.remove();
+            }); */
+        $(".todolistul").remove();
         localStorage.clear();
     });
     $('#taskEntryForm').submit(function () {

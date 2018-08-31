@@ -5,6 +5,7 @@ let matchNumber;
 let willDisplayData; //Whether or not to print out the data requested from TheBlueAlliance to the console
 let slackAPI; //API key for the slack bot
 let slackChannel; //Channel ID for the slackbot
+//let currentTime = (Date.now()/1000);
 
 /**
  * Runs on startup
@@ -15,6 +16,10 @@ function initClock()
 	slackReader();
 	updatePage();
 	updatePagePeriodic();
+	if (matchNumber != "null")
+	{
+		matchNumber = null;
+	}
 }
 
 /**
@@ -28,19 +33,21 @@ function updatePage()
 	eventKey = doc.elements[1].value;
 	slackAPI = doc.elements[2].value;
 	slackChannel = doc.elements[3].value;
-	matchNumber = doc.elements[4].value;
-	willDisplayData = doc.elements[5].checked;
+	twitchID = doc.elements[4].value;
+	matchNumber = doc.elements[5].value;
+	willDisplayData = doc.elements[6].checked;
 
-	matchNumber = (getNextMatch(Date.now(), teamNumber, eventKey, willDisplayData, matchNumber)).match_number;
+	updateTimer();
+
+	matchNumber = (getNextMatch(Date.now())).match_number;
 
 	//updates data on webpage
-	updateAllianceColor(eventKey, teamNumber, matchNumber, willDisplayData);
-	updateMatchSchedule(teamNumber, eventKey, willDisplayData, compareUsingMatchNumber);
-	updateRank(teamNumber, eventKey, willDisplayData);
-	updateWinLossTie(teamNumber, eventKey, willDisplayData);
-	updateTeamMates(teamNumber, eventKey, willDisplayData, matchNumber, isBlue(getMatch(getMatches(teamNumber, eventKey, willDisplayData), matchNumber), teamNumber));
-	updateOpponents(teamNumber, eventKey, willDisplayData, matchNumber, isBlue(getMatch(getMatches(teamNumber, eventKey, willDisplayData), matchNumber), teamNumber));
-	updateTimer();
+	updateAllianceColor();
+	updateMatchSchedule(compareUsingMatchNumber);
+	updateRank();
+	updateWinLossTie();
+	updateTeamMates(isBlue(getMatch(getMatches())));
+	updateOpponents(isBlue(getMatch(getMatches())));
 }
 
 /**
@@ -50,7 +57,7 @@ function updatePagePeriodic()
 {
 	let interval = setInterval(function() {
 		updatePage();
-	}, 60000);
+	}, 1000);
 }
 
 /**
@@ -60,10 +67,10 @@ function updatePagePeriodic()
  * @param {match number} matchNumber 
  * @param {Whether or not to print out the data requested from TheBlueAlliance to the console} willDisplayData
  */
-function updateAllianceColor(eventKey, teamNumber, matchNumber, willDisplayData)
+function updateAllianceColor()
 {
 	//Sorts down to the individual match, determines the color, and sets the color on the webpage
-	setAllianceColor(matchNumber, isBlue(getMatch(getMatches(teamNumber, eventKey, willDisplayData), matchNumber), teamNumber));
+	setAllianceColor(isBlue(getMatch(getMatches())));
 }
 
 /**
@@ -72,7 +79,7 @@ function updateAllianceColor(eventKey, teamNumber, matchNumber, willDisplayData)
  * @param {a unique identifier for an event from TBA. typically formatted as ####*****} eventKey 
  * @param {Whether or not to print out the data requested from TheBlueAlliance to the console} willDisplayData
  */
-function getMatches(teamNumber, eventKey, willDisplayData)
+function getMatches()
 {
 	//Pulls data from TBA in JSON format, turns the JSON data into an array of JS objects
 	return JSON.parse(requestData('https://www.thebluealliance.com/api/v3/team/' + teamNumber + '/event/' + eventKey + '/matches', willDisplayData));
@@ -83,7 +90,7 @@ function getMatches(teamNumber, eventKey, willDisplayData)
  * @param {Data to access and look through, usually from getMatches()} data 
  * @param {match number} matchNumber 
  */
-function getMatch(data, matchNumber)
+function getMatch(data)
 {
 	return findItem(data, 'match_number', matchNumber);
 }
@@ -93,7 +100,7 @@ function getMatch(data, matchNumber)
  * @param {Data to access and look through, usually from getMatch()} data 
  * @param {team number in format frc####} teamNumber 
  */
-function isBlue(data, teamNumber)
+function isBlue(data)
 {
 	if (data.alliances.blue.team_keys.includes(teamNumber))
 	{
@@ -107,7 +114,7 @@ function isBlue(data, teamNumber)
  * @param {match number} matchNumber 
  * @param {Boolean. true if blue, false if red} isBlue 
  */
-function setAllianceColor(matchNumber, isBlue)
+function setAllianceColor(isBlue)
 {
 	if (isBlue)
 	{
@@ -127,10 +134,10 @@ function setAllianceColor(matchNumber, isBlue)
  * @param {a unique identifier for an event from TBA. typically formatted as ####*****} eventKey 
  * @param {Whether or not to print out the data requested from TheBlueAlliance to the console} willDisplayData 
  */
-function getMatchNumbers(teamNumber, eventKey, willDisplayData)
+function getMatchNumbers()
 {
 	let matchNumbers;
-	let data = getMatches(teamNumber, eventKey, willDisplayData); //Gets an array of match objects from TheBlueAlliance
+	let data = getMatches(); //Gets an array of match objects from TheBlueAlliance
 	//Builds an array of just the match numbers from the data returned by getMatches
 	for (let i = 0; i < data.length; i++)
 	{
@@ -147,9 +154,9 @@ function getMatchNumbers(teamNumber, eventKey, willDisplayData)
  * @param {Match number} matchNumber
  * @param {Boolean. true if blue, false if red} isBlue 
  */
-function updateTeamMates(teamNumber, eventKey, willDisplayData, matchNumber, isBlue)
+function updateTeamMates(isBlue)
 {
-	document.getElementById("teammates").innerHTML = getTeamMates(teamNumber, eventKey, willDisplayData, matchNumber, isBlue);
+	document.getElementById("teammates").innerHTML = getTeamMates(isBlue);
 }
 
 /**
@@ -160,21 +167,21 @@ function updateTeamMates(teamNumber, eventKey, willDisplayData, matchNumber, isB
  * @param {Match number} matchNum 
  * @param {Boolean. true if blue, false if red} isBlue 
  */
-function getTeamMates(teamNumber, eventKey, willDisplayData, matchNum, isBlue)
+function getTeamMates(isBlue)
 {
-	let match = getMatch(getMatches(teamNumber, eventKey, willDisplayData), matchNum); //Gets the match object
+	let match = getMatch(getMatches()); //Gets the match object
 	
 	if (isBlue)
 	{
 		let teamMates = match.alliances.blue.team_keys; //Grabs the names of the teams on the blue alliance
 		document.getElementById("teammates").style.backgroundColor = "blue"; //sets the color of the text to blue
-		return formatTeams(teamMates, teamNumber); //removes "frc" prefix
+		return formatTeams(teamMates); //removes "frc" prefix
 	}
 	else
 	{
 		let teamMates = match.alliances.red.team_keys; //Grabs the names of the teams on the red alliance
 		document.getElementById("teammates").style.backgroundColor = "red"; //sets the color of the text to red
-		return formatTeams(teamMates, teamNumber); //removes the "frc" prefix
+		return formatTeams(teamMates); //removes the "frc" prefix
 	}
 }
 
@@ -183,7 +190,7 @@ function getTeamMates(teamNumber, eventKey, willDisplayData, matchNum, isBlue)
  * @param {Array of team numbers to format} array 
  * @param {OPTIONAL: team to be excluded from results} teamNumber 
  */
-function formatTeams(array, teamNumber)
+function formatTeams(array)
 {
 	let output = "";
 
@@ -207,9 +214,9 @@ function formatTeams(array, teamNumber)
  * @param {Match number} matchNum 
  * @param {Boolean. true if blue, false if red} isBlue 
  */
-function updateOpponents(teamNumber, eventKey, willDisplayData, matchNum, isBlue)
+function updateOpponents(isBlue)
 {
-	document.getElementById("opponents").innerHTML = getOpponents(teamNumber, eventKey, willDisplayData, matchNum, isBlue);
+	document.getElementById("opponents").innerHTML = getOpponents(isBlue);
 }
 
 /**
@@ -220,9 +227,9 @@ function updateOpponents(teamNumber, eventKey, willDisplayData, matchNum, isBlue
  * @param {Match number} matchNum 
  * @param {Boolean. true if blue, false if red} isBlue 
  */
-function getOpponents(teamNumber, eventKey, willDisplayData, matchNum, isBlue)
+function getOpponents(isBlue)
 {
-	let match = getMatch(getMatches(teamNumber, eventKey, willDisplayData), matchNum)
+	let match = getMatch(getMatches())
 	
 	if (isBlue)
 	{
@@ -247,9 +254,9 @@ function getOpponents(teamNumber, eventKey, willDisplayData, matchNum, isBlue)
  * @param {a unique identifier for an event from TBA. typically formatted as ####*****} eventKey 
  * @param {Whether or not to print out the data requested from TheBlueAlliance to the console} willDisplayData 
  */
-function updateRank(teamNumber, eventKey, willDisplayData)
+function updateRank()
 {
-	document.getElementById("rank").innerHTML = 'Rank: <br>' + getRank(teamNumber, eventKey, willDisplayData);
+	document.getElementById("rank").innerHTML = 'Rank: <br>' + getRank();
 }
 
 /**
@@ -258,9 +265,9 @@ function updateRank(teamNumber, eventKey, willDisplayData)
  * @param {a unique identifier for an event from TBA. typically formatted as ####*****} eventKey 
  * @param {Whether or not to print out the data requested from TheBlueAlliance to the console} willDisplayData 
  */
-function getRank(teamNumber, eventKey, willDisplayData)
+function getRank()
 {
-	let info = getTeamInfo(teamNumber, eventKey, willDisplayData); //grabs the info for the team
+	let info = getTeamInfo(); //grabs the info for the team
 	return info.qual.ranking.rank; //returns only the rank from the team info
 }
 
@@ -270,9 +277,9 @@ function getRank(teamNumber, eventKey, willDisplayData)
  * @param {a unique identifier for an event from TBA. typically formatted as ####*****} eventKey 
  * @param {Whether or not to print out the data requested from TheBlueAlliance to the console} willDisplayData 
  */
-function updateWinLossTie(teamNumber, eventKey, willDisplayData)
+function updateWinLossTie()
 {
-	document.getElementById("wlt").innerHTML = getWinLossTie(getWins(teamNumber, eventKey, willDisplayData), getLosses(teamNumber, eventKey, willDisplayData), getTies(teamNumber, eventKey, willDisplayData)); //updates the html with thewlt record
+	document.getElementById("wlt").innerHTML = getWinLossTie(getWins(), getLosses(), getTies()); //updates the html with thewlt record
 }
 
 /**
@@ -292,9 +299,9 @@ function getWinLossTie(wins, losses, ties)
  * @param {a unique identifier for an event from TBA. typically formatted as ####*****} eventKey 
  * @param {Whether or not to print out the data requested from TheBlueAlliance to the console} willDisplayData 
  */
-function getWins(teamNumber, eventKey, willDisplayData)
+function getWins()
 {
-	let info = getTeamInfo(teamNumber, eventKey, willDisplayData);
+	let info = getTeamInfo();
 	return info.qual.ranking.record.wins;
 }
 
@@ -304,9 +311,9 @@ function getWins(teamNumber, eventKey, willDisplayData)
  * @param {a unique identifier for an event from TBA. typically formatted as ####*****} eventKey 
  * @param {Whether or not to print out the data requested from TheBlueAlliance to the console} willDisplayData 
  */
-function getLosses(teamNumber, eventKey, willDisplayData)
+function getLosses()
 {
-	let info = getTeamInfo(teamNumber, eventKey, willDisplayData);
+	let info = getTeamInfo();
 	return info.qual.ranking.record.losses;
 }
 
@@ -316,9 +323,9 @@ function getLosses(teamNumber, eventKey, willDisplayData)
  * @param {a unique identifier for an event from TBA. typically formatted as ####*****} eventKey 
  * @param {Whether or not to print out the data requested from TheBlueAlliance to the console} willDisplayData 
  */
-function getTies(teamNumber, eventKey, willDisplayData)
+function getTies()
 {
-	let info = getTeamInfo(teamNumber, eventKey, willDisplayData);
+	let info = getTeamInfo();
 	return info.qual.ranking.record.ties;
 }
 
@@ -328,16 +335,16 @@ function getTies(teamNumber, eventKey, willDisplayData)
  * @param {a unique identifier for an event from TBA. typically formatted as ####*****} eventKey 
  * @param {Whether or not to print out the data requested from TheBlueAlliance to the console} willDisplayData 
  */
-function getTeamInfo(teamNumber, eventKey, willDisplayData)
+function getTeamInfo()
 {
-	return JSON.parse(requestData('https://www.thebluealliance.com/api/v3/team/' + teamNumber + '/event/' + eventKey + '/status', willDisplayData)); //parses and return the JSON data recieved
+	return JSON.parse(requestData('https://www.thebluealliance.com/api/v3/team/' + teamNumber + '/event/' + eventKey + '/status')); //parses and return the JSON data recieved
 }
 
 /**
  * Requests and returns the data from a given url
  * @param {url} url 
  */
-function requestData(url, willDisplayData)
+function requestData(url)
 {
 	httpRequest = new XMLHttpRequest(); //creates a new HTTPRequest object
 
