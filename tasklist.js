@@ -1,9 +1,8 @@
 $(document).ready(function () {
-
-    var i = 0;
+    var i = 7;
     var k = localStorage.length; 
     console.log(localStorage.length);
-    for (l = 0; l < k; l++) {
+    for (l = 7; l < k; l++) {
         var taskID = "task-" + (l);
         if (localStorage.getItem(taskID) != null) {
             $('#taskList').append("<li id='" + taskID + "'>" + localStorage.getItem(taskID) + "</li>");
