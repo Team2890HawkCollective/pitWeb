@@ -59,11 +59,11 @@ function slackReader()
 
                         if (color)
                         {
-                            document.getElementById("slackAlert").style.backgroundColor = "DeepPink";
+                            document.getElementById("slackAlert").style.backgroundColor = "#ff89c9";
                         }
                         else
                         {
-                            document.getElementById("slackAlert").style.backgroundColor = "Cyan";
+                            document.getElementById("slackAlert").style.backgroundColor = "#89f9f9";
                         }
 
                     }
