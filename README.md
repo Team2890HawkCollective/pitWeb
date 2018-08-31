@@ -37,6 +37,8 @@ Navigate [here](https://team2890.github.io/pitWeb) and follow [setup](#setup)
 
 [Settings](#settings)
 
+## Pages
+
 ### Home
 Main page where the most important information for the pit crew is displayed
 
@@ -125,6 +127,8 @@ Settings include:
 - [MatchNumber](#match-number)
 - [PrintRequestedDataInConsole](#print-requested-data-in-console)
 
+### Settings Elements
+
 #### Team Number
 The team number to be used for the [rank](#rank), [schedule](#schedule), [timer](#timer), [win-loss-tie](#win-loss-tie), [colorQ](#colorq#), [matchAlerts](#match-alerts), [teammates](#teammates), and [opponents](#opponents)
 
@@ -161,6 +165,8 @@ Allows user to manually set a match number for the [timer](#timer), [colorQ](#co
 **DEBUGGING OPTION**
 
 Whether or not to print out the data requested from the blue alliance via the TBA API in the console
+
+## Elements on Pages
 
 #### Alerts Bar
 Displays alerts when something important happens
