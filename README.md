@@ -2,77 +2,63 @@
 A website to display information to the pit crew during a competition
 
 ## Table Of Contents
-[Installation](#Installation)
+[Installation](#installation)
+
+[Setup](#setup)
 
 ## Installation
 'git clone https://github.com/Team2890/pitWeb.git'
 
 Place files on web server
 
+Follow [setup](#setup)
+
 **OR**
 
-Navigate [here](https://github.com/Team2890/pitWeb) and follow [Usage](#Usage)
+Navigate [here](https://team2890.github.io/pitWeb) and follow [setup](#setup)
 
-## Usage
+## Setup
+1. Fill in:
+    - [TeamNumber](#team-number)
+    - [EventKey](#event-key)
+    - [SlackAPIKey](#slack-api-key)
+    - [SlackChannelID](#slack-channel-id)
+    - [TwitchStreamChannelName](#twitch-stream-channel-name)
+2. Click the save button
 
-### Page List
+### Team Number
+The team number to be used for the [rank](#rank), [schedule](#schedule), [timer](#timer), [win-loss-tie](#win-loss-tie), [colorQ](#colorq), [matchAlerts](#match-alerts), [teammates](#teammates), and [opponents](#opponents)
 
-[Home](#home)
+Formatted as: frc####
 
-[Alerts](#alerts)
+### Event Key
+The key for the event from [TheBlueAlliance](https://www.thebluealliance.com/events/)
 
-[Clock](#clock)
+Used for the [rank](#rank), [schedule](#schedule), [timer](#timer), [win-loss-tie](#win-loss-tie), [colorQ](#colorq), [matchAlerts](#match-alerts), [teammates](#teammates), and [opponents](#opponents)
 
-~~[Notepad](#notepad)~~
+Formatted as: \[year][characters]\
 
-[Photos](#photos)
+### Slack API Key
+The bot user API token of the slack integration for your slack workspace.
 
-~~[References](#references)~~
+**Must use own slack bot with 'incoming-webhook' and 'bot' scopes**
 
-~~[ScoutingApp](#scouting-app)~~
+### Slack Channel ID
+The id of the slack channel to post messages to
 
-[GameLivestream](#game-livestream)
+Typically the last characters in numbers in the slack URL
 
-[Settings](#settings)
+ex: https://YOURWORKSPACE.slack.com/messages/CHANNEL_ID/
 
-### Home
-Main page where the most important information for the pit crew is displayed
+### Twitch Stream Channel Name
+The channel name for the twitch stream to use for the [video](#video)
 
-#### Page Elements
-[AlertsBar](#alerts-bar)
+### Match Number
+**DEBUGGING OPTION**
 
-[Video](#video)
+Allows user to manually set a match number for the [timer](#timer), [colorQ](#colorq), [matchAlerts](#match-alerts), [teammates](#teammates), and [opponents](#opponents)
 
-[Timer](#timer)
+### Print Requested Data in Console
+**DEBUGGING OPTION**
 
-~~[Top5](#top5)~~
-
-[Rank](#rank)
-
-[ColorQ#](#colorQ#)
-
-#### Alerts Bar
-[Slack](#slack-alerts)
-
-[Match](#match-alerts)
-
-~~[Discord](#discord-alerts)~~
-
-##### Slack Alerts
-Displays messages sent in the channel designated in the [Slack Channel ID](#Slack Channel ID) if they have '!important!' at the beginning.
-
-Colors alternate between ![#FF1493](https://placehold.it/15/FF1493/000000?text=+) Deep Pink and ![#00FFFF](https://placehold.it/15/00FFFF/000000?text=+) Cyan
-
-##### Match Alerts
-Displays when a match is 10 minutes, 5 minutes away, and 1 minute away. 
-
-Changes color from ![#008000](https://placehold.it/15/008000/000000?text=+) Green, ![#FFFF00](https://placehold.it/15/FFFF00/000000?text=+) Yellow, and ![#FF0000](https://placehold.it/15/FF0000/000000?text=+) Red.
-
-##### Discord Alerts
-Not currently working
-
-#### Video
-Displays the twitch stream from the [Twitch Stream Channel Name](#Twitch Stream Channel Name) field in the settings
-
-#### Timer
-Displays the time till the next match. Match can be manually set in the [Match Number](#Match Number) field in the settings
+Whether or not to print out the data requested from the blue alliance via the TBA API in the console
