@@ -137,7 +137,7 @@
                             <div class="col" id="sendMessage">
                                 <form class="form-inline" id="messageForm">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="message" style="width: 29.5vw"></input>
+                                        <input type="text" class="form-control" id="message" style="width: 29vw"></input>
                                         <button type="button" onclick="sendMessage();" class="btn btn-secondary">Send</button>
                                     </div>
                                 </form>
@@ -155,23 +155,17 @@
                 </div>
             <!--/Alert Box-->
             </div>
-            <div class="col mt-5  mb-1  ml-5 mr-4.5 msgBox" style="height: 60vh">
-                <div id="container">
-                    <header>
-                        <h1 class="listheader">Task List</h1>
-                        <button id="clear" class="clear">Clear all</button>
-                        
-                    </header>
-                    <section id="taskIOSection">
-                        <div id="formContainer">
+
+            <div class="col mt-5  mb-1  ml-5 mr-4.5 msgBox" style="height: 60vh">Task List
                             <form id="taskEntryForm">
-                                <input id="taskInput" placeholder="What would you like to do today?" />
+                                <input id="taskInput" style="width: 21vw; box-align: left" placeholder="Enter task"/>
                             </form>
-                        </div>
                     <ul id="taskList" class="todolistul"></ul>
-                    </section>
+                <div style="position: absolute; bottom: 0; box-align: left; width: 22.5vw">
+                    <button id="clear" class="clear" style="width: 20vw; border-radius: 8px; box-align: left">Clear all</button>
                 </div>
             </div>
+
             <div class="col-4 my-5 mx-5 px-0 msgBox special smfonts" style="height: 60vh">
                 <widgetbot
                     server="266074632056995840"

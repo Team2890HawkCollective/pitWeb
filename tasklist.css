@@ -1,8 +1,10 @@
-.listheader {
-    font-size: 1vw;
-}
+
 .todolistul {
-    padding: 10vw;
+    position: absolute;
+    padding: 1vw;
+    text-align: left;
+    max-width: 25vw;
+    max-height: 100vh;
 }
 .done {
     text-decoration: line-through;

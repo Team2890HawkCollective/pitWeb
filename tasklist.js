@@ -1,8 +1,9 @@
 $(document).ready(function () {
-    var i = 7;
+    //localStorage.clear();
+    var i = (localStorage.length + 1);
     var k = localStorage.length; 
     console.log(localStorage.length);
-    for (l = 7; l < k; l++) {
+    for (l = 7; l <= k; l++) {
         var taskID = "task-" + (l);
         if (localStorage.getItem(taskID) != null) {
             $('#taskList').append("<li id='" + taskID + "'>" + localStorage.getItem(taskID) + "</li>");
@@ -45,8 +46,6 @@ $(document).ready(function () {
         self.slideUp('slow', function () {
             self.remove();
         });
-
+        i++;
     });
-
-
 });
