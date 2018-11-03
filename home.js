@@ -2,7 +2,7 @@ function initHome()
 {
     slackReader();
 	storeUsers();
-	changeChannelID();
+	//changeChannelID();
     updateHomepage();
     updateHomepagePeriodic();
 }
