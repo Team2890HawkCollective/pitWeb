@@ -10,4 +10,19 @@ function updatoAlerto () {
     
     slackReader();
     storeUsers();
+    updateInspection();
 }  
+
+/**
+ * Replaces src or embed to update to proper pit page
+ */
+function updateInspection()
+{
+    var eventName = "http://www.gafirst.org/peachpits/pitmap?event=" + eventKey;
+    var embed = document.getElementById("inspectionStatus");
+    var copy = embed.cloneNode(true);
+    copy.setAttribute('src', eventName);
+    embed.parentNode.replaceChild(copy, embed);
+}
+
+
