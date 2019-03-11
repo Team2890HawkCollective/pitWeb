@@ -96,6 +96,11 @@
                                 <label for="channelID">Twitch Stream Channel Name:</label>
                                 <input type="text" class="form-control" id="channel" value="">
                             </div>
+                            <!--Pit Map Website input-->
+                            <div class="form-group">
+                                <label for="pitMap">Competition Pit Map:</label>
+                                <input type="text" class="form-control" id="pitMap" value="">
+                            </div>
                             <b>Debugging tools</b>
                             <!--Match Number input-->
                             <div class="form-group">
@@ -173,7 +178,7 @@
 
             <div class="col-4 my-5 mx-5 px-0 msgBox special smfonts" style="height: 60vh">
                 
-                <embed src="http://www.gafirst.org/peachpits/pitmap?event=2019vapor" style="width:100%; height: 100%; border: 20px solid #2C2F33; border-radius: 8px; overflow: hidden">
+                <embed id="inspectionStatus" style="width:100%; height: 100%; border: 20px solid #2C2F33; border-radius: 8px; overflow: hidden">
 
                 <script>
                 const embed = document.getElementById('embed')

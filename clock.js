@@ -37,6 +37,8 @@ function updatePage()
 	matchNumber = doc.elements[5].value;
 	willDisplayData = doc.elements[6].checked;
 
+	
+
 	updateTimer();
 
 	matchNumber = (getNextMatch(Date.now())).match_number;
