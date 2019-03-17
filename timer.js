@@ -3,7 +3,7 @@ let interval;
 function updateTimer()
 {
     clearInterval(interval);
-    runTimer((Date.now()), getNextMatchTime());                  
+    runTimer((Date.now()), getNextMatchTime() + getFieldTiming());                  
 }
 
 function runTimer(currentTime, targetTime)
@@ -34,7 +34,7 @@ function runTimer(currentTime, targetTime)
         minutes = "0" + difference.getUTCMinutes();
         hours = difference.getUTCHours();
 
-        hours += getFieldTiming(getPreviousMatch(currentTime));
+        //hours += getFieldTiming(getPreviousMatch(currentTime));
 
         timer.innerHTML = hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
 
@@ -45,7 +45,7 @@ function runTimer(currentTime, targetTime)
         {
             clearInterval(interval);
             matchNumber = null;
-            runTimer((Date.now()), getNextMatchTime()); 
+            runTimer((Date.now()), getNextMatchTime() + getFieldTiming()); 
         }
 
         if (difference.getUTCMinutes() < 1 && difference.getUTCHours == 0)
