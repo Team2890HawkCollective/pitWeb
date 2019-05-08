@@ -15,7 +15,7 @@ Follow [setup](#setup)
 
 **OR**
 
-Navigate [here](https://team2890.github.io/pitWeb) and follow [setup](#setup)
+Navigate [here](https://Team2890HawkCollective.github.io/pitWeb) and follow [setup](#setup)
 
 ## Setup
 1. Fill in:
